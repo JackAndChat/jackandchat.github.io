@@ -45,7 +45,7 @@ let Favicon_URL = Room_URL + "favicon.png";
 if (Room_ID.toLowerCase() === 'jac') { // Alpha Debug Room
   CHANNEL_DEBUG = true;
 
-  Base_URL = "https://raw.githubusercontent.com/jackandchat/cytube/main/beta/";
+  Base_URL = "https://jackandchat.github.io/beta/";
   Room_URL = Base_URL;
   
   if (IMABOT) {
