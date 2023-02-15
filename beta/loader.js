@@ -44,8 +44,7 @@ let Favicon_URL = Room_URL + "favicon.png";
 if (Room_ID.toLowerCase() === 'jac') { // Alpha Debug Room
   CHANNEL_DEBUG = true;
 
-  Base_URL = "https://jackandchat.github.io/beta/";
-  Room_URL = Base_URL;
+  Base_URL = Base_URL.replace("/www/", "/beta/");
   
   if (IMABOT) {
     window.localStorage.clear();
