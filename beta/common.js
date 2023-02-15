@@ -274,7 +274,7 @@ const setCustomMOTD = function() {
 
 const getCustomMOTD = function() {
   $.ajax({
-    url: MOTD_URL + 'motd-btns.html',
+    url: Base_URL + 'motd-btns.html',
     type: 'GET',
     cache: false,
     success: function(data){

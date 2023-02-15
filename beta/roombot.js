@@ -179,7 +179,7 @@ const pauseVideo = function(userCount){
     window.socket.emit("shufflePlaylist");
 
     debugData("roombot.queue");
-    window.socket.emit("queue", { id: "https://cdn.jsdelivr.net/gh/JackAndChat/CyTube@latest/www/adults-only.json", pos:"end", type:"cm", "temp":true });
+    window.socket.emit("queue", { id: Base_URL + "adults-only.json", pos:"end", type:"cm", "temp":true });
    
     debugData("roombot.clear");
     window.socket.emit("chatMsg", { msg: "/clear", meta: {} });

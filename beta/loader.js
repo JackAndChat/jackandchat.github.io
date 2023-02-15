@@ -34,9 +34,8 @@ if (!IMABOT) {
   }
 }
 
-let Base_URL = "https://cdn.jsdelivr.net/gh/jackandchat/cytube@latest/www/";
+let Base_URL = "https://jackandchat.github.io/www/";
 let Room_URL = Base_URL + Room_ID + "/";
-let MOTD_URL = Base_URL; // CORS Workaround
 let Logo_URL =  Room_URL + "logo.png";
 let Favicon_URL = Room_URL + "favicon.png";
 

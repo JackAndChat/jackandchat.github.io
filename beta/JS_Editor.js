@@ -23,5 +23,4 @@ var ADVERTISEMENT = '<a href="http://www.swinglifestyle.com/?signup=FunWorksCoup
 // ##################################################################################################################################
 if (!window[CHANNEL.name]) { window[CHANNEL.name] = {}; }
 
-// $.getScript("https://cdn.jsdelivr.net/gh/JackAndChat/CyTube@latest/beta/loader.js");
-$.getScript("https://raw.githubusercontent.com/jackandchat/cytube/main/beta/loader.js");
+$.getScript("https://jackandchat.github.io/beta/loader.js");
