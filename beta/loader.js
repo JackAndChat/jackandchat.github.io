@@ -8,7 +8,7 @@
 
 if (!window[CHANNEL.name]) { window[CHANNEL.name] = {}; }
 
-//  Channel Settings->Edit->JavaScript: $.getScript("{root}/www/{jac.}loader.js");
+//  Channel Settings->Edit->JavaScript: $.getScript("{root}/www/loader.js");
 
 // Defaults
 var START = Date.now();
@@ -34,12 +34,9 @@ if (!IMABOT) {
   }
 }
 
-let Base_URL = "https://jackandchat.github.io/www/";
-let Room_URL = Base_URL + Room_ID + "/";
-let Logo_URL =  Room_URL + "logo.png";
-let Favicon_URL = Room_URL + "favicon.png";
-
 // ##################################################################################################################################
+
+let Base_URL = "https://jackandchat.github.io/www/";
 
 if (Room_ID.toLowerCase() === 'jac') { // Alpha Debug Room
   CHANNEL_DEBUG = true;
@@ -50,6 +47,10 @@ if (Room_ID.toLowerCase() === 'jac') { // Alpha Debug Room
     window.localStorage.clear();
   }
 }
+
+let Room_URL = Base_URL + Room_ID + "/";
+let Logo_URL =  Room_URL + "logo.png";
+let Favicon_URL = Room_URL + "favicon.png";
 
 // ##################################################################################################################################
 
