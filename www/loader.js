@@ -36,7 +36,8 @@ if (!IMABOT) {
 
 // ##################################################################################################################################
 
-let Base_URL = "https://jackandchat.github.io/www/";
+let Root_URL = "https://jackandchat.github.io/";
+let Base_URL = Root_URL + "www/";
 
 if (Room_ID.toLowerCase() === 'jac') { // Alpha Debug Room
   CHANNEL_DEBUG = true;
@@ -48,9 +49,20 @@ if (Room_ID.toLowerCase() === 'jac') { // Alpha Debug Room
   }
 }
 
+// ----------------------------------------------------------------------------------------------------------------------------------
+
 let Room_URL = Base_URL + Room_ID + "/";
+
+let Emotes_URL = Root_URL + 'emoji/emoji.json';
+
+let Permissions_URL = Base_URL + 'permissions.json';
+let Buttons_URL = Base_URL + 'motd-btns.html';
+
 let Logo_URL =  Room_URL + "logo.png";
 let Favicon_URL = Room_URL + "favicon.png";
+let CustomCSS_URL = Room_URL + 'custom.css';
+let Filters_URL = Room_URL + 'filters.json';
+let MOTD_URL = Room_URL + 'motd.html';
 
 // ##################################################################################################################################
 

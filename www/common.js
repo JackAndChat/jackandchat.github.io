@@ -274,9 +274,13 @@ const setCustomMOTD = function() {
 
 const getCustomMOTD = function() {
   $.ajax({
-    url: Base_URL + 'motd-btns.html',
+    url: Buttons_URL,
     type: 'GET',
+    datatype: 'text',
     cache: false,
+    error: function(data){
+      errorData('common.getCustomMOTD Error', data.status + ": " + data.statusText);
+    },
     success: function(data){
       debugData("common.getCustomMOTD", data);
       window[CHANNEL.name].commonMotd = data;
@@ -296,12 +300,12 @@ window.socket.on("setMotd", (data)=>{
 $(document).ready(function() {
   hideVideoURLs();
   
+  getCustomMOTD();
+
   // Move Title to full width
   $('<div id="titlerow" class="row" />').insertBefore("#main").html($("#videowrap-header").detach());
   VIDEO_TITLE.title = $currenttitle.text().replace("Currently Playing: ", "");
   setVideoTitle();
-  
-  getCustomMOTD();
   
   $('#plmeta').insertBefore("#queue");
   

@@ -321,6 +321,60 @@ window.socket.on('changeMedia', window[CHANNEL.name].setupBOT_Callbacks);
 
 // ##################################################################################################################################
 
+const getPermissions = function() {
+  $.getJSON(Permissions_URL, function(data) {
+      debugData('roombot.getPermissions', data);
+      socket.emit("setPermissions", data);
+    })
+    .fail(function(data) {
+      errorData('roombot.getPermissions Error', data.status + ": " + data.statusText);
+    });
+}
+
+// ##################################################################################################################################
+
+const getFilters = function() {
+  $.getJSON(Filters_URL, function(data) {
+      debugData('roombot.getFilters', data);
+      socket.emit("importFilters", data);
+    })
+    .fail(function(data) {
+      errorData('roombot.getFilters Error', data.status + ": " + data.statusText);
+    });
+}
+
+// ##################################################################################################################################
+
+const getEmotes = function() {
+  $.getJSON(Emotes_URL, function(data) {
+      debugData('roombot.getEmotes', data);
+      socket.emit("importEmotes", data);
+    })
+    .fail(function(data) {
+      errorData('roombot.getEmotes Error', data.status + ": " + data.statusText);
+    });
+}
+
+// ##################################################################################################################################
+
+const getCSS = function() {
+  $.ajax({
+    url: CustomCSS_URL,
+    type: 'GET',
+    datatype: 'text',
+    cache: false,
+    error: function(data){
+      errorData('roombot.getCSS Error', data.status + ": " + data.statusText);
+    },
+    success: function(data){
+      debugData('roombot.getCSS', data);
+      socket.emit("setChannelCSS", { css: data })
+    }
+  });
+}
+
+// ##################################################################################################################################
+
 window[CHANNEL.name].randomMsgDelayMS = 45 * 60 * 1000;
 // if (CHANNEL_DEBUG) { window[CHANNEL.name].randomMsgDelayMS = 10 * 1000; }
 
@@ -453,6 +507,11 @@ setInterval(()=>{
 //  DOCUMENT READY
 $(document).ready(function() {
   debugData("roombot.documentReady", "");
+
+  getPermissions();
+  getCSS();
+  getEmotes();
+  getFilters();
 
   $("#chatline").css({"color":"crimson"});
 
