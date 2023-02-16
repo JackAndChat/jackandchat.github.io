@@ -1,4 +1,17 @@
 [
+{"name":"Dirty","source":"(^|\\W)(arse|ass|ball|bareback|beaver|bitch|blowj|boll|boner|boob|buk|clit|cock|cream|cum|cunny|cunt|dick|facial|fuck|g-spot|gang|gash|golden|gspot|handj|hoe|hoot|jack|jerk|jism|jizz|load|milf|muff|nigger|nipp|nut|piss|prick|pussies|pussy|queef|rape|rim|screw|shit|slut|spooge|spunk|squirt|suck|tidd|tit|twat|wank)([\\w]{0,8})($|\\W)",
+  "flags":"gi","replace":"\\1<em>\\2\\3\\4</em>","active":true,"filterlinks":false},
+
+{"name":"At","source":"\\B(@[\\w]*)","flags":"gi","replace":"<span style='color:Gold'>\\1</span>","active":true,"filterlinks":false},
+{"name":"BBC","source":"BBC","flags":"gi","replace":"BBC","active":true,"filterlinks":false},
+{"name":"BJ","source":"(^|\\W)BJ(s?)($|\\W)","flags":"gi","replace":"\\1BJ\\2\\3","active":true,"filterlinks":false},
+{"name":"BWC","source":"BWC","flags":"gi","replace":"BWC","active":true,"filterlinks":false},
+{"name":"HotWife","source":"hotwi","flags":"gi","replace":"HotWi","active":true,"filterlinks":false},
+{"name":"Jesus","source":"Jesus","flags":"gi","replace":"Jesus","active":true,"filterlinks":false},
+{"name":"JO","source":"(^|\\W)JO($|\\W)","flags":"gi","replace":"\\1JO\\2\\3","active":true,"filterlinks":false},
+{"name":"MILF","source":"milf","flags":"gi","replace":"MILF","active":true,"filterlinks":false},
+{"name":"XXX","source":"xxx","flags":"gi","replace":"XXX","active":true,"filterlinks":false},
+
 {"name":"W_pead0","source":"peado","flags":"gi","replace":"ped0","active":true,"filterlinks":false},
 {"name":"W_ped0","source":"pedo","flags":"gi","replace":"ped0","active":true,"filterlinks":false},
 {"name":"X_rape","source":"(^|\\W)r\\W?a\\W?p\\W?e","flags":"gi","replace":"\\1@#$%!","active":true,"filterlinks":false},

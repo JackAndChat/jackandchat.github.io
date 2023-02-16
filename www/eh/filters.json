@@ -1,27 +1,4 @@
 [
-{"name":"1_dau","source":"(^|\\W)(dau)('?)(s?)($|\\W)","flags":"gi","replace":"\\1<em>\\2ghter</em>\\3\\4\\5","active":true,"filterlinks":false},
-{"name":"2_mom","source":"(^|\\W)(mom's|moms|mom)($|\\W)","flags":"gi","replace":"\\1<em>\\2</em>\\3","active":true,"filterlinks":false},
-{"name":"3_family","source":
-  "(^|\\W)(step|gran|teen|dad|father|momm|mum|mother|son|sis|dau|aunt|uncle|niece|nephew)([\\w]{0,8})(ies|'s)?",
-  "flags":"gi","replace":"\\1<em>\\2\\3</em>","active":true,"filterlinks":false},
-
-{"name":"African","source":"nig+er","flags":"gi","replace":"African","active":true,"filterlinks":false},
-{"name":"bitch","source":"(^|\\W)b\\W{0,3}i\\W{0,3}t\\W{0,3}c\\W{0,3}h","flags":"gi","replace":"\\1slut","active":true,"filterlinks":false},
-{"name":"butterface","source":"butterface","flags":"gi","replace":"sexy","active":true,"filterlinks":false},
-{"name":"catfish","source":"(^|\\W)c\\W{0,3}a\\W{0,3}t\\W{0,3}f\\W{0,3}i\\W{0,3}s\\W{0,3}h","flags":"gi","replace":"love","active":true,"filterlinks":false},
-{"name":"cunt","source":"(^|\\W)c\\W{0,3}u\\W{0,3}n\\W{0,3}t","flags":"gi","replace":"\\1cunny","active":true,"filterlinks":false},
-{"name":"PAWG","source":"PAWG","flags":"gi","replace":"butt","active":true,"filterlinks":false},
-{"name":"skank","source":"skank","flags":"gi","replace":"angel","active":true,"filterlinks":false},
-{"name":"slag","source":"slag","flags":"gi","replace":"angel","active":true,"filterlinks":false},
-{"name":"udder","source":"udder","flags":"gi","replace":"boob","active":true,"filterlinks":false},
-{"name":"whore","source":"(^|\\W)w\\W{0,3}h\\W{0,3}[o0]\\W{0,3}r\\W{0,3}[e3]","flags":"gi","replace":"\\1slut","active":true,"filterlinks":false},
-{"name":"young","source":"(yung|yng)","flags":"gi","replace":"young","active":true,"filterlinks":false},
-
-{"name":"lisa1","active":true,"filterlinks":false,"flags":"gi","source":"LisaQT","replace":"LisaQT"},
-{"name":"lisa2","active":true,"filterlinks":false,"flags":"gi",
-  "source":"(^|\\W)l\\W{0,3}i\\W{0,3}s\\W{0,3}[a@](\\w{0,6})",
-  "replace":"\\1<span class='adminnick'>Lisa\\2</span>"},
-
 {"name":"Dirty","source":"(^|\\W)(arse|ass|ball|bareback|beaver|bitch|blowj|boll|boner|boob|buk|clit|cock|cream|cum|cunny|cunt|dick|facial|fuck|g-spot|gang|gash|golden|gspot|handj|hoe|hoot|jack|jerk|jism|jizz|load|milf|muff|nigger|nipp|nut|piss|prick|pussies|pussy|queef|rape|rim|screw|shit|slut|spooge|spunk|squirt|suck|tidd|tit|twat|wank)([\\w]{0,8})($|\\W)",
   "flags":"gi","replace":"\\1<em>\\2\\3\\4</em>","active":true,"filterlinks":false},
 
