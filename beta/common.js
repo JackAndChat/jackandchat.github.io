@@ -263,6 +263,30 @@ const cacheEmotes = function() {
   }
 }
 
+const setEmotes = function(text){ 
+  var data;
+  try {
+    data = JSON.parse(text);
+  } catch (e) {
+    errorData('common.getEmotes', data);
+    return;
+  }
+
+  debugData('common.setEmotes', data);
+  socket.emit("importEmotes", data);
+};
+
+const getEmotes = function() {
+  $.ajax({
+    url: Root_URL + 'emoji/emoji.txt',
+    type: 'GET',
+    cache: false,
+    success: function(data){
+      setEmotes(data);
+    }
+  });
+}
+
 // ##################################################################################################################################
 
 window[CHANNEL.name].commonMotd = "";
@@ -302,6 +326,7 @@ $(document).ready(function() {
   setVideoTitle();
   
   getCustomMOTD();
+  getEmotes();
   
   $('#plmeta').insertBefore("#queue");
   
