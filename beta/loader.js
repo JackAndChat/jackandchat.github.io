@@ -54,6 +54,8 @@ if (Room_ID.toLowerCase() === 'jac') { // Alpha Debug Room
 let Room_URL = Base_URL + Room_ID + "/";
 
 let Emotes_URL = Root_URL + 'emoji/emoji.json';
+
+let Permissions_URL = Base_URL + 'permissions.json';
 let Buttons_URL = Base_URL + 'motd-btns.html';
 
 let Logo_URL =  Room_URL + "logo.png";
