@@ -272,12 +272,15 @@ const getFilters = function() {
     url: Filters_URL,
     type: 'GET',
     cache: false,
+    error: function(textStatus, e) {
+      errorData('common.getFilters ' + textStatus, e);
+    },
     success: function(data){
       var jsonData;
       try {
         jsonData = JSON.parse(data);
       } catch (e) {
-        errorData('common.getFilters', e);
+        errorData('common.getFilters ' + Filters_URL, e);
         return;
       }
 
@@ -309,7 +312,7 @@ const getEmotes = function() {
       try {
         jsonData = JSON.parse(data);
       } catch (e) {
-        errorData('common.getEmotes', e);
+        errorData('common.getEmotes ' + Emotes_URL, e);
         return;
       }
 
