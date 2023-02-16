@@ -277,7 +277,7 @@ const getFilters = function() {
       try {
         jsonData = JSON.parse(data);
       } catch (e) {
-        errorData('common.getFilters', data);
+        errorData('common.getFilters', e);
         return;
       }
 
@@ -309,7 +309,7 @@ const getEmotes = function() {
       try {
         jsonData = JSON.parse(data);
       } catch (e) {
-        errorData('common.getEmotes', data);
+        errorData('common.getEmotes', e);
         return;
       }
 
