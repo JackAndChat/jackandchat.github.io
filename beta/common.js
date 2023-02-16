@@ -257,6 +257,7 @@ const getCSS = function() {
   $.ajax({
     url: CustomCSS_URL,
     type: 'GET',
+    datatype: 'text',
     cache: false,
     success: function(data){
       debugData('common.getCSS', data);
@@ -268,26 +269,13 @@ const getCSS = function() {
 // ##################################################################################################################################
 
 const getFilters = function() {
-  $.ajax({
-    url: Filters_URL,
-    type: 'GET',
-    cache: false,
-    error: function(textStatus, e) {
-      errorData('common.getFilters ' + textStatus, e);
-    },
-    success: function(data){
-      var jsonData;
-      try {
-        jsonData = JSON.parse(data);
-      } catch (e) {
-        errorData('common.getFilters ' + Filters_URL, e);
-        return;
-      }
-
-      debugData('common._setFilters', jsonData);
-      socket.emit("importFilters", jsonData);
-    }
-  });
+  $.getJSON(Filters_URL, function(data) {
+      debugData('common.getFilters', data);
+      socket.emit("importFilters", data);
+    })
+    .fail(function(data) {
+      errorData('common.getFilters Error', data.status + ": " + data.statusText);
+    });
 }
 
 // ##################################################################################################################################
@@ -303,23 +291,13 @@ const cacheEmotes = function() {
 }
 
 const getEmotes = function() {
-  $.ajax({
-    url: Emotes_URL,
-    type: 'GET',
-    cache: false,
-    success: function(data){
-      var jsonData;
-      try {
-        jsonData = JSON.parse(data);
-      } catch (e) {
-        errorData('common.getEmotes ' + Emotes_URL, e);
-        return;
-      }
-
-      debugData('common.setEmotes', jsonData);
-      socket.emit("importEmotes", jsonData);
-    }
-  });
+  $.getJSON(Emotes_URL, function(data) {
+      debugData('common.getEmotes', data);
+      socket.emit("importEmotes", data);
+    })
+    .fail(function(data) {
+      errorData('common.getEmotes Error', data.status + ": " + data.statusText);
+    });
 }
 
 // ##################################################################################################################################
@@ -335,6 +313,7 @@ const getCustomMOTD = function() {
   $.ajax({
     url: Buttons_URL,
     type: 'GET',
+    datatype: 'html',
     cache: false,
     success: function(data){
       debugData("common.getCustomMOTD", data);
