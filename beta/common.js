@@ -253,6 +253,42 @@ const autoMsgExpire = function() {
 
 // ##################################################################################################################################
 
+const getCSS = function() {
+  $.ajax({
+    url: CustomCSS_URL,
+    type: 'GET',
+    cache: false,
+    success: function(data){
+      debugData('common.getCSS', data);
+      socket.emit("setChannelCSS", { css: data })
+    }
+  });
+}
+
+// ##################################################################################################################################
+
+const getFilters = function() {
+  $.ajax({
+    url: Filters_URL,
+    type: 'GET',
+    cache: false,
+    success: function(data){
+      var jsonData;
+      try {
+        jsonData = JSON.parse(data);
+      } catch (e) {
+        errorData('common.getFilters', data);
+        return;
+      }
+
+      debugData('common._setFilters', jsonData);
+      socket.emit("importFilters", jsonData);
+    }
+  });
+}
+
+// ##################################################################################################################################
+
 const cacheEmotes = function() {
   for (let loop in CHANNEL.emotes) {
     var _img = document.createElement('img');
@@ -263,26 +299,22 @@ const cacheEmotes = function() {
   }
 }
 
-const setEmotes = function(text){ 
-  var data;
-  try {
-    data = JSON.parse(text);
-  } catch (e) {
-    errorData('common.getEmotes', data);
-    return;
-  }
-
-  debugData('common.setEmotes', data);
-  socket.emit("importEmotes", data);
-};
-
 const getEmotes = function() {
   $.ajax({
-    url: Root_URL + 'emoji/emoji.txt',
+    url: Emotes_URL,
     type: 'GET',
     cache: false,
     success: function(data){
-      setEmotes(data);
+      var jsonData;
+      try {
+        jsonData = JSON.parse(data);
+      } catch (e) {
+        errorData('common.getEmotes', data);
+        return;
+      }
+
+      debugData('common.setEmotes', jsonData);
+      socket.emit("importEmotes", jsonData);
     }
   });
 }
@@ -298,7 +330,7 @@ const setCustomMOTD = function() {
 
 const getCustomMOTD = function() {
   $.ajax({
-    url: Base_URL + 'motd-btns.html',
+    url: Buttons_URL,
     type: 'GET',
     cache: false,
     success: function(data){
@@ -320,13 +352,15 @@ window.socket.on("setMotd", (data)=>{
 $(document).ready(function() {
   hideVideoURLs();
   
+  getCSS();
+  getCustomMOTD();
+  getEmotes();
+  getFilters();
+
   // Move Title to full width
   $('<div id="titlerow" class="row" />').insertBefore("#main").html($("#videowrap-header").detach());
   VIDEO_TITLE.title = $currenttitle.text().replace("Currently Playing: ", "");
   setVideoTitle();
-  
-  getCustomMOTD();
-  getEmotes();
   
   $('#plmeta').insertBefore("#queue");
   
