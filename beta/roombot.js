@@ -321,6 +321,48 @@ window.socket.on('changeMedia', window[CHANNEL.name].setupBOT_Callbacks);
 
 // ##################################################################################################################################
 
+const getFilters = function() {
+  $.getJSON(Filters_URL, function(data) {
+      debugData('roombot.getFilters', data);
+      socket.emit("importFilters", data);
+    })
+    .fail(function(data) {
+      errorData('roombot.getFilters Error', data.status + ": " + data.statusText);
+    });
+}
+
+// ##################################################################################################################################
+
+const getEmotes = function() {
+  $.getJSON(Emotes_URL, function(data) {
+      debugData('roombot.getEmotes', data);
+      socket.emit("importEmotes", data);
+    })
+    .fail(function(data) {
+      errorData('roombot.getEmotes Error', data.status + ": " + data.statusText);
+    });
+}
+
+// ##################################################################################################################################
+
+const getCSS = function() {
+  $.ajax({
+    url: CustomCSS_URL,
+    type: 'GET',
+    datatype: 'text',
+    cache: false,
+    error: function(data){
+      errorData('roombot.getCSS Error', data.status + ": " + data.statusText);
+    },
+    success: function(data){
+      debugData('roombot.getCSS', data);
+      socket.emit("setChannelCSS", { css: data })
+    }
+  });
+}
+
+// ##################################################################################################################################
+
 window[CHANNEL.name].randomMsgDelayMS = 45 * 60 * 1000;
 // if (CHANNEL_DEBUG) { window[CHANNEL.name].randomMsgDelayMS = 10 * 1000; }
 
@@ -453,6 +495,10 @@ setInterval(()=>{
 //  DOCUMENT READY
 $(document).ready(function() {
   debugData("roombot.documentReady", "");
+
+  getCSS();
+  getEmotes();
+  getFilters();
 
   $("#chatline").css({"color":"crimson"});
 

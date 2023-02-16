@@ -253,33 +253,6 @@ const autoMsgExpire = function() {
 
 // ##################################################################################################################################
 
-const getCSS = function() {
-  $.ajax({
-    url: CustomCSS_URL,
-    type: 'GET',
-    datatype: 'text',
-    cache: false,
-    success: function(data){
-      debugData('common.getCSS', data);
-      socket.emit("setChannelCSS", { css: data })
-    }
-  });
-}
-
-// ##################################################################################################################################
-
-const getFilters = function() {
-  $.getJSON(Filters_URL, function(data) {
-      debugData('common.getFilters', data);
-      socket.emit("importFilters", data);
-    })
-    .fail(function(data) {
-      errorData('common.getFilters Error', data.status + ": " + data.statusText);
-    });
-}
-
-// ##################################################################################################################################
-
 const cacheEmotes = function() {
   for (let loop in CHANNEL.emotes) {
     var _img = document.createElement('img');
@@ -288,16 +261,6 @@ const cacheEmotes = function() {
       window.console.error("Error loading '" + this.src + "'");
     }
   }
-}
-
-const getEmotes = function() {
-  $.getJSON(Emotes_URL, function(data) {
-      debugData('common.getEmotes', data);
-      socket.emit("importEmotes", data);
-    })
-    .fail(function(data) {
-      errorData('common.getEmotes Error', data.status + ": " + data.statusText);
-    });
 }
 
 // ##################################################################################################################################
@@ -313,8 +276,11 @@ const getCustomMOTD = function() {
   $.ajax({
     url: Buttons_URL,
     type: 'GET',
-    datatype: 'html',
+    datatype: 'text',
     cache: false,
+    error: function(data){
+      errorData('common.getCustomMOTD Error', data.status + ": " + data.statusText);
+    },
     success: function(data){
       debugData("common.getCustomMOTD", data);
       window[CHANNEL.name].commonMotd = data;
@@ -334,10 +300,7 @@ window.socket.on("setMotd", (data)=>{
 $(document).ready(function() {
   hideVideoURLs();
   
-  getCSS();
   getCustomMOTD();
-  getEmotes();
-  getFilters();
 
   // Move Title to full width
   $('<div id="titlerow" class="row" />').insertBefore("#main").html($("#videowrap-header").detach());
