@@ -11,8 +11,11 @@ var ALLOW_GUESTS = true;
 var LOAD_BOT = true;
 var BETA_USERS = ['lisaqtee'];
 
+var TRIVIA = false;
+// var HIGHLIGHT = [''];
+
 var ADVERTISEMENT = '<a href="http://www.swinglifestyle.com/?signup=FunWorksCouple" target="_blank">' + 
-  '<img src="//www.swinglifestyle.com/login/sls_bannera_2c.jpg" alt="SwingLifeStyle" border="0"></a>' +
+  '<img src="https://www.swinglifestyle.com/_CDN/img/affiliate_banners/950w-x-250h-B.jpg" alt="SwingLifeStyle" title="SwingLifeStyle" border="0"></a>' +
   '<br /><a href="http://www.swinglifestyle.com/?signup=FunWorksCouple" target="_blank">Sponsor</a>';
 
 // ##################################################################################################################################
