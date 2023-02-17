@@ -21,9 +21,18 @@ let chatExpireTime = 1000 * 60 * 60 * 2;
 
 // ##################################################################################################################################
 
+const isNullOrEmpty = function(data){
+  if (typeof data === 'undefined') return true;
+  return !(data);
+}
+
 const formatConsoleMsg = function(desc, data){
-  return "[" + new Date().toTimeString().split(" ")[0] + "] " + 
-    desc + ": " + JSON.stringify(data);
+  let msg = desc;
+  if ((typeof data !== 'undefined') && (data)) {
+    msg += ': ' + JSON.stringify(data);
+  }
+
+  return "[" + new Date().toTimeString().split(" ")[0] + "] " + msg;
 };
 
 // Send debug msg to console
