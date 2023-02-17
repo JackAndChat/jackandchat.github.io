@@ -335,7 +335,7 @@ const getPermissions = function() {
 
 const getFilters = function() {
   $.getJSON(Filters_URL, function(data) {
-      window.console.log('roombot.getFilters');
+      logData('roombot.getFilters');
       debugData('roombot.getFilters', data);
       socket.emit("importFilters", data);
     })
@@ -348,7 +348,7 @@ const getFilters = function() {
 
 const getEmotes = function() {
   $.getJSON(Emotes_URL, function(data) {
-      window.console.log('roombot.getEmotes');
+      logData('roombot.getEmotes');
       debugData('roombot.getEmotes', data);
       socket.emit("importEmotes", data);
     })
@@ -369,7 +369,7 @@ const getCSS = function() {
       errorData('roombot.getCSS Error', data.status + ": " + data.statusText);
     },
     success: function(data){
-      window.console.log('roombot.getCSS');
+      logData('roombot.getCSS');
       debugData('roombot.getCSS', data);
       socket.emit("setChannelCSS", { css: data })
     }
