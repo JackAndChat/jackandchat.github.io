@@ -312,7 +312,7 @@ window.socket.on("setMotd", (data)=>{
 
 //  DOCUMENT READY
 $(document).ready(function() {
-  hideVideoURLs();
+  if (!IMABOT) { hideVideoURLs(); }
   
   getCustomMOTD();
 
