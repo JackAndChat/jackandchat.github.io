@@ -447,10 +447,10 @@ function shuffleArray(array) {
 // ----------------------------------------------------------------------------------------------------------------------------------
 window[CHANNEL.name].randomMsgInit = function() {
   if (Room_ID.toLowerCase() !== 'hwm') {
-    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _HotWife & MILF_ videos check out https://cytube.xyz/r/HotWifeMILFs`);
+    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _HotWife & MILF_ videos check out https://s.lain.la/SDYgW`);
   }
   if (Room_ID.toLowerCase() !== 'fd') {
-    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Teen_ videos check out https://cytube.xyz/r/Familiar-Faces`);
+    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Teen_ videos check out https://s.lain.la/nu9g6`);
   }
   if (Room_ID.toLowerCase() !== 'eh') {
     window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Hentai_ videos check out https://cytu.be/r/Ecchi-Hentai`);
