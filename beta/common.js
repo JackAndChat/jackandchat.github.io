@@ -37,6 +37,11 @@ const errorData = function(desc, data){
   window.console.error(formatConsoleMsg(desc, data));
 };
 
+// Send log msg to console
+const logData = function(desc, data){
+  window.console.log(formatConsoleMsg(desc, data));
+};
+
 // Admin Debugger
 const debugListener = function(eventName, data){ 
   if (eventName.toLowerCase() == "mediaupdate") return;
