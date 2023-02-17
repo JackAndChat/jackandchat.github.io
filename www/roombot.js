@@ -335,6 +335,7 @@ const getPermissions = function() {
 
 const getFilters = function() {
   $.getJSON(Filters_URL, function(data) {
+      logData('roombot.getFilters');
       debugData('roombot.getFilters', data);
       socket.emit("importFilters", data);
     })
@@ -347,6 +348,7 @@ const getFilters = function() {
 
 const getEmotes = function() {
   $.getJSON(Emotes_URL, function(data) {
+      logData('roombot.getEmotes');
       debugData('roombot.getEmotes', data);
       socket.emit("importEmotes", data);
     })
@@ -367,6 +369,7 @@ const getCSS = function() {
       errorData('roombot.getCSS Error', data.status + ": " + data.statusText);
     },
     success: function(data){
+      logData('roombot.getCSS');
       debugData('roombot.getCSS', data);
       socket.emit("setChannelCSS", { css: data })
     }
@@ -444,7 +447,7 @@ function shuffleArray(array) {
 // ----------------------------------------------------------------------------------------------------------------------------------
 window[CHANNEL.name].randomMsgInit = function() {
   if (Room_ID.toLowerCase() !== 'hwm') {
-    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _HotWife & MILF_ videos check out https://cytu.be/r/HotWifeMILFs`);
+    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _HotWife & MILF_ videos check out https://cytube.xyz/r/HotWifeMILFs`);
   }
   if (Room_ID.toLowerCase() !== 'fd') {
     window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Teen_ videos check out https://cytube.xyz/r/Familiar-Faces`);

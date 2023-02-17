@@ -21,9 +21,18 @@ let chatExpireTime = 1000 * 60 * 60 * 2;
 
 // ##################################################################################################################################
 
+const isNullOrEmpty = function(data){
+  if (typeof data === 'undefined') return true;
+  return !(data);
+}
+
 const formatConsoleMsg = function(desc, data){
-  return "[" + new Date().toTimeString().split(" ")[0] + "] " + 
-    desc + ": " + JSON.stringify(data);
+  let msg = desc;
+  if ((typeof data !== 'undefined') && (data)) {
+    msg += ': ' + JSON.stringify(data);
+  }
+
+  return "[" + new Date().toTimeString().split(" ")[0] + "] " + msg;
 };
 
 // Send debug msg to console
@@ -35,6 +44,11 @@ const debugData = function(desc, data){
 // Send error msg to console
 const errorData = function(desc, data){
   window.console.error(formatConsoleMsg(desc, data));
+};
+
+// Send log msg to console
+const logData = function(desc, data){
+  window.console.log(formatConsoleMsg(desc, data));
 };
 
 // Admin Debugger
