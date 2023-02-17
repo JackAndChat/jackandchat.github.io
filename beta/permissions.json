@@ -1,7 +1,7 @@
 {
   "addnontemp": 3,
   "ban": 2,
-  "chat": 1,
+  "chat": 0,
   "chatclear": 2,
   "deletefromchannellib": 3,
   "drink": 1000000,
