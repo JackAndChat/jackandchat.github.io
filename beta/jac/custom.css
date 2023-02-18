@@ -82,6 +82,6 @@ body {
 }
 .vjs-error-display {
   display: flex !important;
-  background-image: url(https://jackandchat.github.io/img/adults-only.png);
+  background-image: url(https://jackandchat.github.io/img/adults-only.webp);
   background-size: contain;
 }
