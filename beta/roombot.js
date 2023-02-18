@@ -359,18 +359,38 @@ const getEmotes = function() {
 
 // ##################################################################################################################################
 
+window[CHANNEL.name].BlockerCSS = "";
+
 const getCSS = function() {
+  
+  $.ajax({
+    url: BlockerCSS_URL,
+    type: 'GET',
+    datatype: 'text',
+    cache: false,
+    error: function(data){
+      errorData('roombot.getBlockerCSS Error', data.status + ": " + data.statusText);
+    },
+    success: function(data){
+      logData('roombot.getBlockerCSS');
+      debugData('roombot.getBlockerCSS', data);
+      window[CHANNEL.name].BlockerCSS = data;
+    }
+  });
+  
   $.ajax({
     url: CustomCSS_URL,
     type: 'GET',
     datatype: 'text',
     cache: false,
     error: function(data){
-      errorData('roombot.getCSS Error', data.status + ": " + data.statusText);
+      errorData('roombot.getCustomCSS Error', data.status + ": " + data.statusText);
     },
     success: function(data){
-      logData('roombot.getCSS');
-      debugData('roombot.getCSS', data);
+      logData('roombot.getCustomCSS');
+      debugData('roombot.getCustomCSS', data);
+      
+      data += window[CHANNEL.name].BlockerCSS;
       socket.emit("setChannelCSS", { css: data })
     }
   });

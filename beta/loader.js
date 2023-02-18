@@ -57,6 +57,7 @@ let Emotes_URL = Root_URL + 'emoji/emoji.json';
 
 let Permissions_URL = Base_URL + 'permissions.json';
 let Buttons_URL = Base_URL + 'motd-btns.html';
+let BlockerCSS_URL = Base_URL + 'blocker.css';
 
 let Logo_URL =  Room_URL + "logo.png";
 let Favicon_URL = Room_URL + "favicon.png";
