@@ -164,6 +164,8 @@ window.socket.on("chatMsg", (data)=>{
 // ##################################################################################################################################
 
 const pauseVideo = function(userCount){
+  return;
+  
   let $entry = $('#queue > li.queue_entry:contains("Video Paused")');
   let uid = $entry.data("uid") || -1;
   debugData("roombot.pauseVideo.uid", uid);
