@@ -219,11 +219,6 @@ body {
   font-size: 110%;
 }
 
-.credit, .credit a {
-  color: DarkGray;
-  Zfont-size: 50%;
-}
-
 .pm-panel, .pm-panel-placeholder { 
   width: 30%;
   min-width: 250px;

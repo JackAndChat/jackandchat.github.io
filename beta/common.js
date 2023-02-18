@@ -326,11 +326,11 @@ $(document).ready(function() {
   $('#plmeta').insertBefore("#queue");
   
   $("p.credit").html(`Powered by CyTube, available on 
-      <a href="https://github.com/calzoneman/sync" target="_blank" rel="noreferrer noopener">GitHub</a>&nbsp;
-      <a href="https://jackandchat.github.io/contact.html" target="_blank">Contact</a>&nbsp;
-      <a href="https://jackandchat.github.io/useragreement.html" target="_blank">Policies(JP)</a>&nbsp;
-      <a href="https://jackandchat.github.io/howtouse.html" target="_blank">How To Use(JP)</a>&nbsp;
-      <a href="https://jackandchat.github.io/dmca.html" target="_blank">DMCA</a>`);
+      <a target="_blank" rel="noreferrer noopener" href="https://github.com/calzoneman/sync">GitHub</a>&nbsp;
+      <a target="_blank" rel="noreferrer noopener" href="https://jackandchat.github.io/contact.html">Contact</a>&nbsp;
+      <a target="_blank" rel="noreferrer noopener" href="https://jackandchat.github.io/useragreement.html">Policies</a>&nbsp;
+      <a target="_blank" rel="noreferrer noopener" href="https://jackandchat.github.io/howtouse.html">How To Use</a>&nbsp;
+      <a target="_blank" rel="noreferrer noopener" href="https://jackandchat.github.io/dmca.html">DMCA</a>`);
 
   $('<link id="roomfavicon" href="' + Favicon_URL + '?ac=' + START + '" type="image/x-icon" rel="shortcut icon" />').appendTo("head");
 
