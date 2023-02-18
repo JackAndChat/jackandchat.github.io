@@ -81,7 +81,7 @@ body {
   -webkit-filter: blur(16px) brightness(0.5) invert(100%) grayscale(100%);
 }
 .vjs-error-display {
-  display: flex !important;
-  background-image: url(https://jackandchat.github.io/img/adults-only.webp);
-  background-size: contain;
+  display: block !important;
+  background-image: url(https://jackandchat.github.io/img/adults-only.webp) !important;
+  background-size: contain !important;
 }
