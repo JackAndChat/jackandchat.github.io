@@ -310,8 +310,30 @@ window.socket.on("setMotd", (data)=>{
 
 // ##################################################################################################################################
 
+const getFooter = function() {
+  $.ajax({
+    url: Footer_URL,
+    type: 'GET',
+    datatype: 'text',
+    cache: false,
+    error: function(data){
+      errorData('common.getFooter Error', data.status + ": " + data.statusText);
+    },
+    success: function(data){
+      debugData("common.getFooter", data);
+      window[CHANNEL.name].commonMotd = data;
+      $("p.credit").html(data);
+    }
+  });
+}
+
+// ##################################################################################################################################
+
 //  DOCUMENT READY
 $(document).ready(function() {
+  getFooter();
+  refreshVideo();
+
   if (!IMABOT) { hideVideoURLs(); }
   
   getCustomMOTD();
@@ -322,8 +344,6 @@ $(document).ready(function() {
   setVideoTitle();
   
   $('#plmeta').insertBefore("#queue");
-  
-  $("p.credit").html("&nbsp;");
 
   $('<link id="roomfavicon" href="' + Favicon_URL + '?ac=' + START + '" type="image/x-icon" rel="shortcut icon" />').appendTo("head");
 

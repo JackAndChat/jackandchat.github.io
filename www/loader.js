@@ -57,6 +57,8 @@ let Emotes_URL = Root_URL + 'emoji/emoji.json';
 
 let Permissions_URL = Base_URL + 'permissions.json';
 let Buttons_URL = Base_URL + 'motd-btns.html';
+let Footer_URL = Base_URL + 'footer.html';
+let BlockerCSS_URL = Base_URL + 'blocker.css';
 
 let Logo_URL =  Room_URL + "logo.png";
 let Favicon_URL = Room_URL + "favicon.png";
@@ -94,9 +96,9 @@ const jsScriptsLoad = function(){ // Load Javascripts in order
 }
 
 // ----------------------------------------------------------------------------------------------------------------------------------
-const loadCSS = function(filename){
+const loadCSS = function(id, filename){
   try {
-    $("head").append('<link rel="stylesheet" type="text/css" href="' + filename + '?ac=' + START + '" />');
+    $("head").append('<link rel="stylesheet" type="text/css" id="' + id + '" href="' + filename + '?ac=' + START + '" />');
   } catch (e) {
     window.console.error("loader.loadCSS error: " + filename + " - " + JSON.stringify(e));
   }
@@ -130,7 +132,12 @@ if (!CUSTOM_LOADED) { // Load Once
     $("ul.navbar-nav li:contains('Home')").remove();
     $("ul.navbar-nav li:contains('Discord')").remove();
     
-    loadCSS(Base_URL + "base.css");
+    loadCSS("basecss", Base_URL + "base.css");
+    
+    $("#chanexternalcss").remove(); // No Conflicts
+    
+    $("#chancss").remove(); // No Conflicts
+    loadCSS("chancss", CustomCSS_URL);
   });
 }
 
