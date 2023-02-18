@@ -310,12 +310,32 @@ window.socket.on("setMotd", (data)=>{
 
 // ##################################################################################################################################
 
+const getFooter = function() {
+  $.ajax({
+    url: Footer_URL,
+    type: 'GET',
+    datatype: 'text',
+    cache: false,
+    error: function(data){
+      errorData('common.getFooter Error', data.status + ": " + data.statusText);
+    },
+    success: function(data){
+      debugData("common.getFooter", data);
+      window[CHANNEL.name].commonMotd = data;
+      $("p.credit").html(data);
+    }
+  });
+}
+
+// ##################################################################################################################################
+
 //  DOCUMENT READY
 $(document).ready(function() {
-  if (!IMABOT) { hideVideoURLs(); }
-  
+  getFooter();
   refreshVideo();
 
+  if (!IMABOT) { hideVideoURLs(); }
+  
   getCustomMOTD();
 
   // Move Title to full width
@@ -324,13 +344,6 @@ $(document).ready(function() {
   setVideoTitle();
   
   $('#plmeta').insertBefore("#queue");
-  
-  $("p.credit").html(`Powered by CyTube, available on 
-      <a target="_blank" rel="noreferrer noopener" href="https://github.com/calzoneman/sync">GitHub</a>&nbsp;
-      <a target="_blank" rel="noreferrer noopener" href="https://jackandchat.github.io/contact.html">Contact</a>&nbsp;
-      <a target="_blank" rel="noreferrer noopener" href="https://jackandchat.github.io/useragreement.html">Policies</a>&nbsp;
-      <a target="_blank" rel="noreferrer noopener" href="https://jackandchat.github.io/howtouse.html">How To Use</a>&nbsp;
-      <a target="_blank" rel="noreferrer noopener" href="https://jackandchat.github.io/dmca.html">DMCA</a>`);
 
   $('<link id="roomfavicon" href="' + Favicon_URL + '?ac=' + START + '" type="image/x-icon" rel="shortcut icon" />').appendTo("head");
 
