@@ -232,13 +232,10 @@ body {
   padding-bottom: 2px;
 }
 
-.vjs-tech{
-  filter: unset;
-  -moz-filter: unset;
-  -o-filter: unset;
-  -webkit-filter: unset;
+.vjs-error-display {
+  display: inherit;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0)) !important;
 }
-.vjs-text-track-display{background: unset}
 
 /****************************************************************************************************/
 .throb_text { animation: throbber 4s ease infinite; }

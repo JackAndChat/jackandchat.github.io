@@ -60,17 +60,6 @@ body {
   color: LawnGreen;
 }
 
-.vjs-tech {
-  filter: blur(8px) brightness(0.5) grayscale(100%);
-  -moz-filter: blur(8px) brightness(0.5) grayscale(100%);
-  -o-filter: blur(8px) brightness(0.5) grayscale(100%);
-  -webkit-filter: blur(8px) brightness(0.5) grayscale(100%);
-}
-.vjs-text-track-display {
-  background-image:url(https://jackandchat.github.io/img/adults-only.png);
-  background-size:cover;
-}
-
 #showsearch, #showcustomembed, #showplaylistmanager, #qlockbtn, #getplaylist, #showmediaupload, #showplaylist {
   visibility: hidden;
   width: 0;
@@ -82,4 +71,17 @@ body {
 #chanjs-allow-prompt > a, #chanjs-allow-prompt > button, #chanjs-deny{display:none}
 #chanjs-allow-prompt > span, #chanjs-allow-prompt > div.checkbox > label{font-size:14px}
 #chanjs-allow{font-size:0px;background-color:green;border-radius:15px;background-image:none;padding:10px}
-#chanjs-allow:before{font-size:22px !important;font-weight:900 !important;content:'\2713  I am 18+'}
+#chanjs-allow:before{font-size:22px !important; font-weight:600 !important; content:'I am 18+'}
+
+
+#videowrapZ {
+  filter: blur(16px) brightness(0.5) invert(100%) grayscale(100%);
+  -moz-filter: blur(16px) brightness(0.5) invert(100%) grayscale(100%);
+  -o-filter: blur(16px) brightness(0.5) invert(100%) grayscale(100%);
+  -webkit-filter: blur(16px) brightness(0.5) invert(100%) grayscale(100%);
+}
+.vjs-error-display {
+  display: flex !important;
+  background-image: url(https://jackandchat.github.io/img/adults-only.png);
+  background-size: contain;
+}
