@@ -327,10 +327,10 @@ $(document).ready(function() {
   
   $("p.credit").html(`Powered by CyTube, available on 
       <a href="https://github.com/calzoneman/sync" target="_blank" rel="noreferrer noopener">GitHub</a>&nbsp;
-      <a href="/contact" target="_blank">Contact</a>&nbsp;
-      <a href="/useragreement" target="_blank">Policies(JP)</a>&nbsp;
-      <a href="/howtouse" target="_blank">How To Use(JP)</a>&nbsp;
-      <a href="/dmca" target="_blank">DMCA</a>`);
+      <a href="https://jackandchat.github.io/contact.html" target="_blank">Contact</a>&nbsp;
+      <a href="https://jackandchat.github.io/useragreement.html" target="_blank">Policies(JP)</a>&nbsp;
+      <a href="https://jackandchat.github.io/howtouse.html" target="_blank">How To Use(JP)</a>&nbsp;
+      <a href="https://jackandchat.github.io/dmca.html" target="_blank">DMCA</a>`);
 
   $('<link id="roomfavicon" href="' + Favicon_URL + '?ac=' + START + '" type="image/x-icon" rel="shortcut icon" />').appendTo("head");
 

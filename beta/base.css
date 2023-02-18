@@ -213,9 +213,15 @@ body {
   font-size: 110%;
 }
 
+.random-active h4 {
+  color: DeepSkyBlue !important;
+  font-weight: bold;
+  font-size: 110%;
+}
+
 .credit, .credit a {
   color: DarkGray;
-  font-size: 50%;
+  Zfont-size: 50%;
 }
 
 .pm-panel, .pm-panel-placeholder { 
