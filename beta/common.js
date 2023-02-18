@@ -314,6 +314,8 @@ window.socket.on("setMotd", (data)=>{
 $(document).ready(function() {
   if (!IMABOT) { hideVideoURLs(); }
   
+  refreshVideo();
+
   getCustomMOTD();
 
   // Move Title to full width
