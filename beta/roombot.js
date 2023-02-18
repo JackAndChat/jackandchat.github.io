@@ -359,21 +359,20 @@ const getEmotes = function() {
 
 // ##################################################################################################################################
 
-window[CHANNEL.name].BlockerCSS = "";
-window[CHANNEL.name].CustomCSS = "";
-
-const setCustomCSS = function() {
-  if (window[CHANNEL.name].BlockerCSS.length < 1) return;
-  if (window[CHANNEL.name].CustomCSS.length < 1) return;
-  
-  let data = window[CHANNEL.name].CustomCSS + window[CHANNEL.name].BlockerCSS;
-  socket.emit("setChannelCSS", { css: data });
-  
-  window[CHANNEL.name].BlockerCSS = "";
-  window[CHANNEL.name].CustomCSS = "";
-}
-
 const getCSS = function() {
+  let blockerCSS = "";
+  let customCSS = "";
+  
+  function setCustomCSS() {
+    if (blockerCSS.length < 1) return;
+    if (customCSS.length < 1) return;
+    logData('roombot.getCSS.setCustomCSS');
+    
+    let data = customCSS + blockerCSS;
+    debugData('roombot.getCSS.setCustomCSS', data);
+    
+    socket.emit("setChannelCSS", { css: data });
+  }
   
   $.ajax({
     url: BlockerCSS_URL,
@@ -386,7 +385,7 @@ const getCSS = function() {
     success: function(data){
       logData('roombot.getBlockerCSS');
       debugData('roombot.getBlockerCSS', data);
-      window[CHANNEL.name].BlockerCSS = data;
+      blockerCSS = data;
       setCustomCSS();
     }
   });
@@ -402,7 +401,7 @@ const getCSS = function() {
     success: function(data){
       logData('roombot.getCustomCSS');
       debugData('roombot.getCustomCSS', data);
-      window[CHANNEL.name].CustomCSS = data;
+      customCSS = data;
       setCustomCSS();
     }
   });
