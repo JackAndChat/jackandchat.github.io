@@ -233,12 +233,12 @@ body {
 }
 
 .vjs-tech{
-  filter:unset;
-  -moz-filter:unset;
-  -o-filter:unset;
-  -webkit-filter:unset;
+  filter: unset;
+  -moz-filter: unset;
+  -o-filter: unset;
+  -webkit-filter: unset;
 }
-.vjs-text-track-display{background:unset}
+.vjs-text-track-display{background: unset}
 
 /****************************************************************************************************/
 .throb_text { animation: throbber 4s ease infinite; }
