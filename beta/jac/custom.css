@@ -60,6 +60,17 @@ body {
   color: LawnGreen;
 }
 
+.vjs-tech {
+  filter: blur(8px) brightness(0.5) grayscale(100%);
+  -moz-filter: blur(8px) brightness(0.5) grayscale(100%);
+  -o-filter: blur(8px) brightness(0.5) grayscale(100%);
+  -webkit-filter: blur(8px) brightness(0.5) grayscale(100%);
+}
+.vjs-text-track-display {
+  background-image:url(https://jackandchat.github.io/img/adults-only.png);
+  background-size:cover;
+}
+
 #showsearch, #showcustomembed, #showplaylistmanager, #qlockbtn, #getplaylist, #showmediaupload, #showplaylist {
   visibility: hidden;
   width: 0;
@@ -70,6 +81,5 @@ body {
 .profile-box{background-color:#bf935a;color:white}
 #chanjs-allow-prompt > a, #chanjs-allow-prompt > button, #chanjs-deny{display:none}
 #chanjs-allow-prompt > span, #chanjs-allow-prompt > div.checkbox > label{font-size:14px}
-#chanjs-allow-prompt > div.checkbox:before{content:'Required to Chat';font-size:14px !important;font-weight:600 !important}
 #chanjs-allow{font-size:0px;background-color:green;border-radius:15px;background-image:none;padding:10px}
-#chanjs-allow:before{font-size:14px !important;content:'ALLOW'}
+#chanjs-allow:before{font-size:22px !important;font-weight:900 !important;content:'\2713  I am 18+'}

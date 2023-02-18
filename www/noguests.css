@@ -5,5 +5,4 @@
   -o-filter:unset;
   -webkit-filter:unset;
 }
-.pm-input{visibility:unset}
-.vjs-text-track-display, .pm-buffer{background:unset}
+.vjs-text-track-display{background:unset}

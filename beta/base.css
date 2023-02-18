@@ -232,6 +232,14 @@ body {
   padding-bottom: 2px;
 }
 
+.vjs-tech{
+  filter:unset;
+  -moz-filter:unset;
+  -o-filter:unset;
+  -webkit-filter:unset;
+}
+.vjs-text-track-display{background:unset}
+
 /****************************************************************************************************/
 .throb_text { animation: throbber 4s ease infinite; }
 @keyframes throbber { 0% { opacity: 1.0; } 50% { opacity: 0.4; } 100% { opacity: 1.0; } } 
