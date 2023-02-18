@@ -365,8 +365,12 @@ window[CHANNEL.name].CustomCSS = "";
 const setCustomCSS = function() {
   if (window[CHANNEL.name].BlockerCSS.length < 1) return;
   if (window[CHANNEL.name].CustomCSS.length < 1) return;
+  
   let data = window[CHANNEL.name].CustomCSS + window[CHANNEL.name].BlockerCSS;
-  socket.emit("setChannelCSS", { css: data })
+  socket.emit("setChannelCSS", { css: data });
+  
+  window[CHANNEL.name].BlockerCSS = "";
+  window[CHANNEL.name].CustomCSS = "";
 }
 
 const getCSS = function() {
