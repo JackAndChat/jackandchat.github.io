@@ -232,11 +232,6 @@ body {
   padding-bottom: 2px;
 }
 
-.vjs-error-display {
-  display: inherit;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0)) !important;
-}
-
 /****************************************************************************************************/
 .throb_text { animation: throbber 4s ease infinite; }
 @keyframes throbber { 0% { opacity: 1.0; } 50% { opacity: 0.4; } 100% { opacity: 1.0; } } 

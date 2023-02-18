@@ -72,16 +72,3 @@ body {
 #chanjs-allow-prompt > span, #chanjs-allow-prompt > div.checkbox > label{font-size:14px}
 #chanjs-allow{font-size:0px;background-color:green;border-radius:15px;background-image:none;padding:10px}
 #chanjs-allow:before{font-size:22px !important; font-weight:600 !important; content:'I am 18+'}
-
-
-#videowrapZ {
-  filter: blur(16px) brightness(0.5) invert(100%) grayscale(100%);
-  -moz-filter: blur(16px) brightness(0.5) invert(100%) grayscale(100%);
-  -o-filter: blur(16px) brightness(0.5) invert(100%) grayscale(100%);
-  -webkit-filter: blur(16px) brightness(0.5) invert(100%) grayscale(100%);
-}
-.vjs-error-display {
-  display: block !important;
-  background-image: url(https://jackandchat.github.io/img/adults-only.webp) !important;
-  background-size: contain !important;
-}
