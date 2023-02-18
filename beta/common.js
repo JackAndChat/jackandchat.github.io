@@ -325,7 +325,12 @@ $(document).ready(function() {
   
   $('#plmeta').insertBefore("#queue");
   
-  // $("p.credit").html("<p>&nbsp;</p>");
+  $("p.credit").html(`Powered by CyTube, available on 
+      <a href="https://github.com/calzoneman/sync" target="_blank" rel="noreferrer noopener">GitHub</a>&nbsp;
+      <a href="/contact" target="_blank">Contact</a>&nbsp;
+      <a href="/useragreement" target="_blank">Policies(JP)</a>&nbsp;
+      <a href="/howtouse" target="_blank">How To Use(JP)</a>&nbsp;
+      <a href="/dmca" target="_blank">DMCA</a>`);
 
   $('<link id="roomfavicon" href="' + Favicon_URL + '?ac=' + START + '" type="image/x-icon" rel="shortcut icon" />').appendTo("head");
 
