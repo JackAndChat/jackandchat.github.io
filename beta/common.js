@@ -325,7 +325,7 @@ $(document).ready(function() {
   
   $('#plmeta').insertBefore("#queue");
   
-  $("p.credit").html("<p>&nbsp;</p>");
+  // $("p.credit").html("<p>&nbsp;</p>");
 
   $('<link id="roomfavicon" href="' + Favicon_URL + '?ac=' + START + '" type="image/x-icon" rel="shortcut icon" />').appendTo("head");
 
