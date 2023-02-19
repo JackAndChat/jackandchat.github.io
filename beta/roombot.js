@@ -323,6 +323,18 @@ window.socket.on('changeMedia', window[CHANNEL.name].setupBOT_Callbacks);
 
 // ##################################################################################################################################
 
+const getOptions = function() {
+  $.getJSON(Options_URL, function(data) {
+      debugData('roombot.getOptions', data);
+      socket.emit("setOptions", data);
+    })
+    .fail(function(data) {
+      errorData('roombot.getOptions Error', data.status + ": " + data.statusText);
+    });
+}
+
+// ##################################################################################################################################
+
 const getPermissions = function() {
   $.getJSON(Permissions_URL, function(data) {
       debugData('roombot.getPermissions', data);
@@ -546,6 +558,7 @@ setInterval(()=>{
 $(document).ready(function() {
   debugData("roombot.documentReady", "");
 
+  getOptions();
   getPermissions();
   getCSS();
   getEmotes();
