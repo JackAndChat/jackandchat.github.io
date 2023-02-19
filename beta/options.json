@@ -15,7 +15,6 @@
   "maxlength":0,
   "new_user_chat_delay":10,
   "new_user_chat_link_delay":3600,
-  "password":false,
   "playlist_max_duration_per_user":0,
   "playlist_max_per_length":0,
   "playlist_max_per_user":0,
