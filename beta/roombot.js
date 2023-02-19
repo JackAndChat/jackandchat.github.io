@@ -480,20 +480,22 @@ function shuffleArray(array) {
 // ----------------------------------------------------------------------------------------------------------------------------------
 window[CHANNEL.name].randomMsgInit = function() {
   if (Room_ID.toLowerCase() !== 'hwm') {
-    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _HotWife and MILF_ videos check out https://s.lain.la/SDYgW`);
+    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _HotWife and MILF_ videos check out https://s.lain.la/SDYgW `);
   }
   if (Room_ID.toLowerCase() !== 'fd') {
-    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Teen_ videos check out https://s.lain.la/nu9g6`);
+    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Teen_ videos check out https://s.lain.la/nu9g6 `);
   }
+/*
   if (Room_ID.toLowerCase() !== 'eh') {
-    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Hentai_ videos check out https://cytu.be/r/Ecchi-Hentai`);
+    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Hentai_ videos check out https://cytu.be/r/Ecchi-Hentai `);
   }
   if (Room_ID.toLowerCase() !== 'blk') {
-    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _BLACKED_ videos check out the _NEW_ Full of BBC https://cytu.be/r/Full_of_BBC`);
+    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _BLACKED_ videos check out the _NEW_ Full of BBC https://cytu.be/r/Full_of_BBC `);
   }
   if (Room_ID.toLowerCase() !== 'clx') {
-    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Classic/Retro_ videos check out https://cytu.be/r/ClassicStars2022`);
+    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Classic/Retro_ videos check out https://cytu.be/r/ClassicStars2022 `);
   }
+*/
 
   if (TRIVIA) { window[CHANNEL.name].botMsgs = window[CHANNEL.name].botMsgs.concat(sexFacts); }
 
