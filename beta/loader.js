@@ -55,6 +55,7 @@ let Room_URL = Base_URL + Room_ID + "/";
 
 let Emotes_URL = Root_URL + 'emoji/emoji.json';
 
+let Options_URL = Base_URL + 'options.json';
 let Permissions_URL = Base_URL + 'permissions.json';
 let Buttons_URL = Base_URL + 'motd-btns.html';
 let Footer_URL = Base_URL + 'footer.html';
