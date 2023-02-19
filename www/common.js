@@ -35,6 +35,14 @@ const formatConsoleMsg = function(desc, data){
   return "[" + new Date().toTimeString().split(" ")[0] + "] " + msg;
 };
 
+const logTrace = function(desc, data){
+  window.console.log(formatConsoleMsg(desc));
+
+  if (CHANNEL_DEBUG && (typeof data !== 'undefined') && (data)) {
+    window.console.debug(JSON.stringify(data));
+  }
+};
+
 // Send debug msg to console
 const debugData = function(desc, data){
   if (!CHANNEL_DEBUG) return;

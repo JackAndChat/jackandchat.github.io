@@ -17,6 +17,7 @@ if (typeof ChannelName_Caption === "undefined") { var ChannelName_Caption = CHAN
 if (typeof Room_ID === "undefined") { var Room_ID = "jac"; }
 if (typeof ALLOW_GUESTS === "undefined") { var ALLOW_GUESTS = true; }
 if (typeof MUTE_GUESTS === "undefined") { var MUTE_GUESTS = false; }
+if (typeof AGE_RESTRICT === "undefined") { var AGE_RESTRICT = false; }
 if (typeof LOAD_BOT === "undefined") { var LOAD_BOT = false; }
 if (typeof BOT_NICK === "undefined") { var BOT_NICK = "JackAndChatBot"; }
 if (typeof ROOM_ANNOUNCEMENT === "undefined") { var ROOM_ANNOUNCEMENT = ""; }
@@ -55,6 +56,7 @@ let Room_URL = Base_URL + Room_ID + "/";
 
 let Emotes_URL = Root_URL + 'emoji/emoji.json';
 
+let Options_URL = Base_URL + 'options.json';
 let Permissions_URL = Base_URL + 'permissions.json';
 let Buttons_URL = Base_URL + 'motd-btns.html';
 let Footer_URL = Base_URL + 'footer.html';

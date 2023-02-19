@@ -323,9 +323,21 @@ window.socket.on('changeMedia', window[CHANNEL.name].setupBOT_Callbacks);
 
 // ##################################################################################################################################
 
+const getOptions = function() {
+  $.getJSON(Options_URL, function(data) {
+      logTrace('roombot.getOptions', data);
+      socket.emit("setOptions", data);
+    })
+    .fail(function(data) {
+      errorData('roombot.getOptions Error', data.status + ": " + data.statusText);
+    });
+}
+
+// ##################################################################################################################################
+
 const getPermissions = function() {
   $.getJSON(Permissions_URL, function(data) {
-      debugData('roombot.getPermissions', data);
+      logTrace('roombot.getPermissions', data);
       socket.emit("setPermissions", data);
     })
     .fail(function(data) {
@@ -337,8 +349,7 @@ const getPermissions = function() {
 
 const getFilters = function() {
   $.getJSON(Filters_URL, function(data) {
-      logData('roombot.getFilters');
-      debugData('roombot.getFilters', data);
+      logTrace('roombot.getFilters', data);
       socket.emit("importFilters", data);
     })
     .fail(function(data) {
@@ -350,8 +361,7 @@ const getFilters = function() {
 
 const getEmotes = function() {
   $.getJSON(Emotes_URL, function(data) {
-      logData('roombot.getEmotes');
-      debugData('roombot.getEmotes', data);
+      logTrace('roombot.getEmotes', data);
       socket.emit("importEmotes", data);
     })
     .fail(function(data) {
@@ -362,18 +372,50 @@ const getEmotes = function() {
 // ##################################################################################################################################
 
 const getCSS = function() {
+  let blockerCSS = "";
+  let customCSS = "";
+  
+  function setCustomCSS() {
+    if (AGE_RESTRICT && blockerCSS.length < 1) return;
+    if (customCSS.length < 1) return;
+    
+    let data = customCSS;
+    if (AGE_RESTRICT) { data += blockerCSS; }
+    
+    logTrace('roombot.getCSS.setCustomCSS', data);
+    
+    socket.emit("setChannelCSS", { css: data });
+  }
+  
+  if (AGE_RESTRICT) {
+    $.ajax({
+      url: BlockerCSS_URL,
+      type: 'GET',
+      datatype: 'text',
+      cache: false,
+      error: function(data){
+        errorData('roombot.getBlockerCSS Error', data.status + ": " + data.statusText);
+      },
+      success: function(data){
+        logTrace('roombot.getBlockerCSS', data);
+        blockerCSS = data;
+        setCustomCSS();
+      }
+    });
+  }
+  
   $.ajax({
     url: CustomCSS_URL,
     type: 'GET',
     datatype: 'text',
     cache: false,
     error: function(data){
-      errorData('roombot.getCSS Error', data.status + ": " + data.statusText);
+      errorData('roombot.getCustomCSS Error', data.status + ": " + data.statusText);
     },
     success: function(data){
-      logData('roombot.getCSS');
-      debugData('roombot.getCSS', data);
-      socket.emit("setChannelCSS", { css: data })
+      logTrace('roombot.getCustomCSS', data);
+      customCSS = data;
+      setCustomCSS();
     }
   });
 }
@@ -449,20 +491,20 @@ function shuffleArray(array) {
 // ----------------------------------------------------------------------------------------------------------------------------------
 window[CHANNEL.name].randomMsgInit = function() {
   if (Room_ID.toLowerCase() !== 'hwm') {
-    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _HotWife and MILF_ videos check out https://s.lain.la/SDYgW`);
+    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _HotWife and MILF_ videos check out https://s.lain.la/SDYgW `);
   }
   if (Room_ID.toLowerCase() !== 'fd') {
-    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Teen_ videos check out https://s.lain.la/nu9g6`);
+    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Teen_ videos check out https://s.lain.la/nu9g6 `);
+  }
+  if (Room_ID.toLowerCase() !== 'clx') {
+    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Classic/Retro_ videos check out https://s.lain.la/PEJXd `);
   }
 /*
   if (Room_ID.toLowerCase() !== 'eh') {
-    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Hentai_ videos check out https://cytu.be/r/Ecchi-Hentai`);
+    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Hentai_ videos check out https://cytu.be/r/Ecchi-Hentai `);
   }
   if (Room_ID.toLowerCase() !== 'blk') {
-    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _BLACKED_ videos check out the _NEW_ Full of BBC https://cytu.be/r/Full_of_BBC`);
-  }
-  if (Room_ID.toLowerCase() !== 'clx') {
-    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Classic/Retro_ videos check out https://cytu.be/r/ClassicStars2022`);
+    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _BLACKED_ videos check out the _NEW_ Full of BBC https://cytu.be/r/Full_of_BBC `);
   }
 */
 
@@ -515,6 +557,7 @@ setInterval(()=>{
 $(document).ready(function() {
   debugData("roombot.documentReady", "");
 
+  getOptions();
   getPermissions();
   getCSS();
   getEmotes();
