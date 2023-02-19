@@ -376,29 +376,33 @@ const getCSS = function() {
   let customCSS = "";
   
   function setCustomCSS() {
-    if (blockerCSS.length < 1) return;
+    if (AGE_RESTRICT && blockerCSS.length < 1) return;
     if (customCSS.length < 1) return;
     
-    let data = customCSS + blockerCSS;
+    let data = customCSS;
+    if (AGE_RESTRICT) { data += blockerCSS; }
+    
     logTrace('roombot.getCSS.setCustomCSS', data);
     
     socket.emit("setChannelCSS", { css: data });
   }
   
-  $.ajax({
-    url: BlockerCSS_URL,
-    type: 'GET',
-    datatype: 'text',
-    cache: false,
-    error: function(data){
-      errorData('roombot.getBlockerCSS Error', data.status + ": " + data.statusText);
-    },
-    success: function(data){
-      logTrace('roombot.getBlockerCSS', data);
-      blockerCSS = data;
-      setCustomCSS();
-    }
-  });
+  if (AGE_RESTRICT) {
+    $.ajax({
+      url: BlockerCSS_URL,
+      type: 'GET',
+      datatype: 'text',
+      cache: false,
+      error: function(data){
+        errorData('roombot.getBlockerCSS Error', data.status + ": " + data.statusText);
+      },
+      success: function(data){
+        logTrace('roombot.getBlockerCSS', data);
+        blockerCSS = data;
+        setCustomCSS();
+      }
+    });
+  }
   
   $.ajax({
     url: CustomCSS_URL,

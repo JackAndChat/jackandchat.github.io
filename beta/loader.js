@@ -17,6 +17,7 @@ if (typeof ChannelName_Caption === "undefined") { var ChannelName_Caption = CHAN
 if (typeof Room_ID === "undefined") { var Room_ID = "jac"; }
 if (typeof ALLOW_GUESTS === "undefined") { var ALLOW_GUESTS = true; }
 if (typeof MUTE_GUESTS === "undefined") { var MUTE_GUESTS = false; }
+if (typeof AGE_RESTRICT === "undefined") { var AGE_RESTRICT = false; }
 if (typeof LOAD_BOT === "undefined") { var LOAD_BOT = false; }
 if (typeof BOT_NICK === "undefined") { var BOT_NICK = "JackAndChatBot"; }
 if (typeof ROOM_ANNOUNCEMENT === "undefined") { var ROOM_ANNOUNCEMENT = ""; }
