@@ -6,7 +6,7 @@
   "allow_voteup":true,
   "auto_delete_queue_cnt":0,
   "auto_library_queue":false,
-  "block_anonymous_users":false,
+  "block_anonymous_users":true,
   "chat_antiflood":false,
   "chat_antiflood_params":{"burst":4, "sustained":1, "cooldown":4},
   "enable_link_regex":true,
