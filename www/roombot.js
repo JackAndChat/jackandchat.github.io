@@ -454,6 +454,7 @@ window[CHANNEL.name].randomMsgInit = function() {
   if (Room_ID.toLowerCase() !== 'fd') {
     window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Teen_ videos check out https://s.lain.la/nu9g6`);
   }
+/*
   if (Room_ID.toLowerCase() !== 'eh') {
     window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Hentai_ videos check out https://cytu.be/r/Ecchi-Hentai`);
   }
@@ -463,6 +464,7 @@ window[CHANNEL.name].randomMsgInit = function() {
   if (Room_ID.toLowerCase() !== 'clx') {
     window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Classic/Retro_ videos check out https://cytu.be/r/ClassicStars2022`);
   }
+*/
 
   if (TRIVIA) { window[CHANNEL.name].botMsgs = window[CHANNEL.name].botMsgs.concat(sexFacts); }
 
