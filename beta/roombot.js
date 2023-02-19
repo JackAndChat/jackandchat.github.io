@@ -325,7 +325,7 @@ window.socket.on('changeMedia', window[CHANNEL.name].setupBOT_Callbacks);
 
 const getOptions = function() {
   $.getJSON(Options_URL, function(data) {
-      debugData('roombot.getOptions', data);
+      logTrace('roombot.getOptions', data);
       socket.emit("setOptions", data);
     })
     .fail(function(data) {
@@ -337,7 +337,7 @@ const getOptions = function() {
 
 const getPermissions = function() {
   $.getJSON(Permissions_URL, function(data) {
-      debugData('roombot.getPermissions', data);
+      logTrace('roombot.getPermissions', data);
       socket.emit("setPermissions", data);
     })
     .fail(function(data) {
@@ -349,8 +349,7 @@ const getPermissions = function() {
 
 const getFilters = function() {
   $.getJSON(Filters_URL, function(data) {
-      logData('roombot.getFilters');
-      debugData('roombot.getFilters', data);
+      logTrace('roombot.getFilters', data);
       socket.emit("importFilters", data);
     })
     .fail(function(data) {
@@ -362,8 +361,7 @@ const getFilters = function() {
 
 const getEmotes = function() {
   $.getJSON(Emotes_URL, function(data) {
-      logData('roombot.getEmotes');
-      debugData('roombot.getEmotes', data);
+      logTrace('roombot.getEmotes', data);
       socket.emit("importEmotes", data);
     })
     .fail(function(data) {
@@ -380,10 +378,9 @@ const getCSS = function() {
   function setCustomCSS() {
     if (blockerCSS.length < 1) return;
     if (customCSS.length < 1) return;
-    logData('roombot.getCSS.setCustomCSS');
     
     let data = customCSS + blockerCSS;
-    debugData('roombot.getCSS.setCustomCSS', data);
+    logTrace('roombot.getCSS.setCustomCSS', data);
     
     socket.emit("setChannelCSS", { css: data });
   }
@@ -397,8 +394,7 @@ const getCSS = function() {
       errorData('roombot.getBlockerCSS Error', data.status + ": " + data.statusText);
     },
     success: function(data){
-      logData('roombot.getBlockerCSS');
-      debugData('roombot.getBlockerCSS', data);
+      logTrace('roombot.getBlockerCSS', data);
       blockerCSS = data;
       setCustomCSS();
     }
@@ -413,8 +409,7 @@ const getCSS = function() {
       errorData('roombot.getCustomCSS Error', data.status + ": " + data.statusText);
     },
     success: function(data){
-      logData('roombot.getCustomCSS');
-      debugData('roombot.getCustomCSS', data);
+      logTrace('roombot.getCustomCSS', data);
       customCSS = data;
       setCustomCSS();
     }
