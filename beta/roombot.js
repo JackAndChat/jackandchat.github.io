@@ -433,6 +433,7 @@ window[CHANNEL.name].botMsgs = [
   `:green:CyTube TIP::z: Add your _ASL_ to your :cyan:Account->Profile:z: so it shows up when you hover over your nickname`,
   `:green:CyTube TIP::z: If you select :cyan:Options->General->Layout->SyncTube:z: the chat will be on the right side, MyCircle style`,
   `:green:CyTube TIP::z: To skip the current video click the :cyan:"Vote to Skip":z: button`,
+  `:green:CyTube TIP::z: You can now Vote for the next video below.`
 ];
 
 window[CHANNEL.name].sexFacts = [
