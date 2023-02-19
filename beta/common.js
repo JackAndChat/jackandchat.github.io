@@ -36,10 +36,10 @@ const formatConsoleMsg = function(desc, data){
 };
 
 const logTrace = function(desc, data){
-  if (CHANNEL_DEBUG) {
-    window.console.debug(formatConsoleMsg(desc, data));
-  } else {
-    window.console.log(formatConsoleMsg(desc));
+  window.console.log(formatConsoleMsg(desc));
+
+  if (CHANNEL_DEBUG && (typeof data !== 'undefined') && (data)) {
+    window.console.debug(JSON.stringify(data));
   }
 };
 
