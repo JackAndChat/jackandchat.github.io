@@ -401,7 +401,7 @@ $(document).ready(function() {
       .on("click", function(){
         window.socket.emit("chatMsg", { msg: "/clear", meta: {} });
         $messagebuffer.find("[class^=chat-msg-Video]").each(function(){ $(this).remove(); });
-        refreshVideo();
+        socket.emit("playerReady");
       });
 
     $('<button class="btn btn-sm btn-default" id="clean" title="Clean Server Messages">Clean</button>')
