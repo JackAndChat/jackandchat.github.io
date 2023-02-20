@@ -45,13 +45,16 @@
   </div>
 </div>
 <script>
-$('#rules')."click", function() {
-  console.log($(this).text());
-});
-
-$(document).ready(function(){
-   $('#cytubexyz').load("https://jackandchat.github.io/inc/cytubexyz.html");
-   $('#oldcytube').load("https://jackandchat.github.io/inc/oldcytube.html");
-   $('#otherlists').load("https://jackandchat.github.io/inc/otherlists.html");
-});
+  $(document).ready(function(){
+     $('#cytubexyz').load("https://jackandchat.github.io/inc/cytubexyz.html");
+     $('#oldcytube').load("https://jackandchat.github.io/inc/oldcytube.html");
+     $('#otherlists').load("https://jackandchat.github.io/inc/otherlists.html");
+  });
 </script>
+<script>
+  $('#rooms').on('show', function() {
+    console.log('SHOW: ' + $(this).text());
+  });
+</script>
+</body>
+</html>
