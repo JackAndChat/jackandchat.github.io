@@ -400,7 +400,7 @@ $(document).ready(function() {
       .appendTo("#leftcontrols")
       .on("click", function(){
         window.socket.emit("chatMsg", { msg: "/clear", meta: {} });
-        $(".chat-msg-Video").each(function(){ $(this).remove(); });
+        $messagebuffer.find("[class^=chat-msg-Video]").each(function(){ $(this).remove(); });
         socket.emit("playerReady");
       });
 
