@@ -12,10 +12,10 @@
       </div>
       <div class="modal-body">
          • <strong>MUST be 18+</strong><br />
-         • ALL open chat and links must be legal (18+) or you will be <strong>BANNED!</strong><br />
+         • ALL chat and links must be legal (18+) or you will be <strong>BANNED!</strong><br />
          • Be Nice! | Respect the other Jackers<br />
          • No Advertising of any kind<br />
-         • Vote to Skip if you don't like the video<br />
+         • Vote to Skip if you don't like the current video<br />
          • Request a video from a <span class="userlist_op">Moderator</span><br />
          • Have fun!<br />
          <br />
@@ -45,6 +45,10 @@
   </div>
 </div>
 <script>
+$('#rules')."click", function() {
+  console.log($(this).text());
+});
+
 $(document).ready(function(){
    $('#cytubexyz').load("https://jackandchat.github.io/inc/cytubexyz.html");
    $('#oldcytube').load("https://jackandchat.github.io/inc/oldcytube.html");
