@@ -410,7 +410,6 @@ $(document).ready(function() {
         $messagebuffer.find("[class^=chat-msg-\\\\\\$voteskip]").each(function(){ $(this).remove(); });
         $messagebuffer.find("[class^=server-msg]").each(function(){ $(this).remove(); });
         $(".chat-msg-Video:not(:last)").each(function(index, value){ $(this).remove(); });
-        socket.emit("playerReady");
       });
   }
   
