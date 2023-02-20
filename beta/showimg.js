@@ -73,10 +73,9 @@ const showChatImg = function() {
 
   $zoomImgMsg.find(imageExtensions).each(function() {
     let skip = false;
-    if ((this.href.indexOf("imgur.com") > -1) ||
-        (this.href.indexOf("redgifs.com") > -1)) {
-      skip = true;
-    }
+    if (((this.href.indexOf("redgifs.com") > -1) && (!this.href.indexOf("thumbs"))) ||
+        ((this.href.indexOf("imgur.com") > -1) && (!this.href.indexOf("i.imgur.com")))
+       ) { skip = true; }
 
     if (!skip) {
       var img = $('<img>',{class:'zoomImg',rel:'noopener noreferrer',title:'Click to Zoom',alt:'Bad Image'})
