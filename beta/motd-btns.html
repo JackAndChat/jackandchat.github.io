@@ -1,7 +1,7 @@
 
 <div style="float:right;padding-right:33%">
-  <button class="btn btn-default" data-toggle="modal" data-target="#rules">Rules</button>  
-  <button class="btn btn-default" data-toggle="modal" data-target="#rooms">Rooms</button>
+  <button id="rulesbtn" class="btn btn-default" data-toggle="modal" data-target="#rules">Rules</button>  
+  <button id="roombtn" class="btn btn-default" data-toggle="modal" data-target="#rooms">Rooms</button>
 </div>
 <div id="rules" class="modal fade motd-modal" role="dialog" style="display:none">
   <div class="modal-dialog">
@@ -52,7 +52,7 @@
   });
 </script>
 <script>
-  $('#rooms').on('show', function() {
+  $('#roombtn').on('click', function() {
     console.log('SHOW: ' + $(this).text());
   });
 </script>
