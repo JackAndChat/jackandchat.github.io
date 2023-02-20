@@ -400,7 +400,7 @@ $(document).ready(function() {
       .appendTo("#leftcontrols")
       .on("click", function(){
         window.socket.emit("chatMsg", { msg: "/clear", meta: {} });
-        refreshVideo();
+        socket.emit("playerReady");
       });
 
     $('<button class="btn btn-sm btn-default" id="clean" title="Clean Server Messages">Clean</button>')
@@ -409,6 +409,7 @@ $(document).ready(function() {
         $messagebuffer.find("[class^=chat-msg-\\\\\\$server]").each(function(){ $(this).remove(); });
         $messagebuffer.find("[class^=chat-msg-\\\\\\$voteskip]").each(function(){ $(this).remove(); });
         $messagebuffer.find("[class^=server-msg]").each(function(){ $(this).remove(); });
+        $(".chat-msg-Video:not(:last)").each(function(index, value){ $(this).remove(); });
       });
   }
   
