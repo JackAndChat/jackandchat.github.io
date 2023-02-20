@@ -44,14 +44,14 @@
     </div>
   </div>
 </div>
+
 <script>
-$(document).ready(function(){
-  $('#roombtn').on('click', function() {
-     $('#cytubexyz').load("https://jackandchat.github.io/inc/cytubexyz.html");
-     $('#oldcytube').load("https://jackandchat.github.io/inc/oldcytube.html");
-     $('#otherlists').load("https://jackandchat.github.io/inc/otherlists.html");
-  });
-}
+$('#roombtn').on('click', function() {
+  debugData('motd-btns.load.rooms');
+  $('#cytubexyz').load("https://jackandchat.github.io/inc/cytubexyz.html");
+  $('#oldcytube').load("https://jackandchat.github.io/inc/oldcytube.html");
+  $('#otherlists').load("https://jackandchat.github.io/inc/otherlists.html");
+});
 </script>
 </body>
 </html>
