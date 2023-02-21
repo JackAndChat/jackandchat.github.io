@@ -45,38 +45,6 @@
     }
     h1 { font-size: 250%; }
     
-    a {
-      color: rgb(128, 128, 255);
-      background-color: transparent;
-      text-decoration: none;
-      text-transform: capitalize;
-    }
-    a:visited {
-      color: rgb(192, 64, 192);
-    }
-    a:hover {
-      color: rgb(255, 64, 64);
-      text-decoration: underline;
-      font-size: 110%;
-    }
-    a:active {
-      color: Red;
-      text-decoration: underline;
-    }
-
-    ul {
-      line-height: 1.4;
-      display: flex;
-      flex-wrap: wrap;
-      padding: 0;
-    }
-    li {
-      list-style: none;
-      display: inline-block;
-      width: 33%;
-      padding: 0.2em;
-    }
-    
     #main {
       margin: auto;
       width: 90%;
@@ -93,6 +61,37 @@
       font-size: 125%;
     }
     
+    a {
+      color: rgb(128, 128, 255);
+      background-color: transparent;
+      text-decoration: none;
+      text-transform: capitalize;
+    }
+    a:visited {
+      color: rgb(192, 64, 192);
+    }
+    a:hover {
+      color: rgb(255, 64, 64);
+      text-decoration: underline;
+    }
+    a:active {
+      color: Red;
+      text-decoration: underline;
+    }
+
+    .rooms ul {
+      line-height: 1.4;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+    }
+    .rooms li {
+      list-style: none;
+      display: inline-block;
+      width: 33%;
+      padding: 0.2em;
+    }
+    
     * { Zborder: 1px solid #666; }
   </style>
 </head>
@@ -103,24 +102,21 @@
         Links working as-of Feb 21 2023
       </div>
     </h1>
+    <span class="alert">Absolutely <strong>NO</strong> underage or illegal content!</span>
 
     <p>
-      <span class="alert">Absolutely <strong>NO</strong> underage or illegal content!</span>
-      
       <h3>CyTube.XYX</h3>
-      <div id="cytubexyz"></div>
+      <div class="rooms" id="cytubexyz"></div>
       
       <h3>Old CyTu.be still working, for now</h3>
-      <div id="oldcytube"></div>
+      <div class="rooms" id="oldcytube"></div>
       
       <h3>Other Links</h3>
-      <div id="otherlists"></div>
+      <div class="rooms" id="otherlists"></div>
     </p>
-    <p>&nbsp;</p>
     <p>
       To add or remove links email <a href="mailto:admin@jackandchat.net"><span style="color: Orange">admin@jackandchat.net</span></a>
     </p>
-    <p>&nbsp;</p>
     <p>
       <a href="/dmca.html">DMCA</a>
     </p>
