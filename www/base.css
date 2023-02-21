@@ -54,21 +54,9 @@ body {
 .modal-header .close {
   color: white !important;
 }
-#rules .modal-body {
+#rules .modal-body, #rooms .modal-body {
   font-family: Tahoma, Arial, Helvetica, sans-serif;
   font-size: 110%;
-}
-#rooms .modal-body {
-  font-family: Tahoma, Arial, Helvetica, sans-serif;
-  font-size: 110%;
-}
-#rooms a:link, #rooms a:visited, #rooms a:hover {
-	color: #d4ae36;
-  text-decoration: none;
-}
-#rooms a:hover {
-  font-weight: bold;
-  text-decoration: underline;
 }
 .rooms-container {
   display: flex;
@@ -80,6 +68,36 @@ body {
 }  
 .rooms-child:first-child {
 } 
+
+.rooms a {
+  color: rgb(128, 128, 255);
+  background-color: transparent;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+.rooms a:visited {
+  color: rgb(192, 64, 192);
+}
+.rooms a:hover {
+  color: rgb(255, 64, 64);
+  text-decoration: underline;
+}
+.rooms a:active {
+  color: Red;
+  text-decoration: underline;
+}
+.rooms ul {
+  line-height: 1.4;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+.rooms li {
+  list-style: none;
+  display: inline-block;
+  width: 33%;
+  padding: 0.2em;
+}
 
 #currenttitle {
   color: Gold;
