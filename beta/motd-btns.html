@@ -1,3 +1,38 @@
+<style>
+  #modal-body a {
+    color: rgb(128, 128, 255);
+    background-color: transparent;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+  #modal-body a:visited {
+    color: rgb(192, 64, 192);
+  }
+  #modal-body a:hover {
+    color: rgb(255, 64, 64);
+    text-decoration: underline;
+    font-size: 110%;
+  }
+  #modal-body a:active {
+    color: Red;
+    text-decoration: underline;
+  }
+
+  .rooms ul {
+    line-height: 1.4;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+  .rooms li {
+    list-style: none;
+    display: inline-block;
+    width: 33%;
+    padding: 0.2em;
+  }
+  
+  * { Zborder: 1px solid #666; }
+</style>
 
 <div style="float:right;padding-right:33%">
   <button id="rulesbtn" class="btn btn-default" data-toggle="modal" data-target="#rules">Rules</button>  
@@ -33,13 +68,13 @@
       </div>
       <div class="modal-body" style="margin:auto;width:60%">
         <h3>CyTube.XYX</h3>
-        <div id="cytubexyz"></div>
+        <div class="rooms" id="cytubexyz"></div>
         
-        <h3>Old CyTu.be</h3>
-        <div id="oldcytube"></div>
+        <h3>Old CyTu.be still working, for now</h3>
+        <div class="rooms" id="oldcytube"></div>
         
-        <h3>Other Lists</h3>
-        <div id="otherlists"></div>
+        <h3>Other Links</h3>
+        <div class="rooms" id="otherlists"></div>
       </div>
     </div>
   </div>
