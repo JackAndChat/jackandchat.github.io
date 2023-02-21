@@ -54,11 +54,7 @@ body {
 .modal-header .close {
   color: white !important;
 }
-#rules .modal-body {
-  font-family: Tahoma, Arial, Helvetica, sans-serif;
-  font-size: 110%;
-}
-#rooms .modal-body {
+#rules .modal-body, #rooms .modal-body {
   font-family: Tahoma, Arial, Helvetica, sans-serif;
   font-size: 110%;
 }
