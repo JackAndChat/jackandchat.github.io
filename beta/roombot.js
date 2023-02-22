@@ -536,7 +536,7 @@ window[CHANNEL.name].randomMsg = function(){
 
 // Check every 2 seconds
 setInterval(()=>{
-  if ((window[CHANNEL.name].lastChatMsgTime + window[CHANNEL.name].clearDelayMS) < Date.now()) {
+  if (PERIODIC_CLEAR && (window[CHANNEL.name].lastChatMsgTime + window[CHANNEL.name].clearDelayMS) < Date.now()) {
     window.socket.emit("chatMsg", { msg: "/clear", meta: {} });
     if (CLEAR_MSG.length > 0) {
       window.socket.emit("chatMsg", { msg:CLEAR_MSG, meta: {} });
