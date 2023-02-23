@@ -26,6 +26,13 @@ const isNullOrEmpty = function(data){
   return !(data);
 }
 
+function Sleep(sleepMS) {
+  // USE: await Sleep(2000);
+  return new Promise(resolve => setTimeout(resolve, sleepMS));
+}
+
+// ----------------------------------------------------------------------------------------------------------------------------------
+
 const formatConsoleMsg = function(desc, data){
   let msg = desc;
   if ((typeof data !== 'undefined') && (data)) {
