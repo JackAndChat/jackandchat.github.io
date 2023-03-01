@@ -98,6 +98,9 @@ body {
   width: 33%;
   padding: 0.2em;
 }
+strike {
+  color: rgb(128, 128, 255);
+}
 
 #currenttitle {
   color: Gold;
