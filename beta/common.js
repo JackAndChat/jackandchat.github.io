@@ -344,6 +344,15 @@ const getFooter = function() {
 
 // ##################################################################################################################################
 
+const makeNoRefererMeta = function(){
+  let meta = document.createElement('meta');
+  meta.name='referrer';
+  meta.content='no-referrer';
+  document.head.append(meta);
+}
+
+// ##################################################################################################################################
+
 //  DOCUMENT READY
 $(document).ready(function() {
   getFooter();
@@ -387,7 +396,8 @@ $(document).ready(function() {
 
   window.setInterval(()=>{  // Check every second
     autoMsgExpire();
-
+    makeNoRefererMeta();
+    
     // Remove LastPass Icon. TODO There MUST be a better way!
     $("#chatline").css({"background-image":"none"});
     $(".pm-input").css({"background-image":"none"});
@@ -399,6 +409,7 @@ $(document).ready(function() {
 
     let chatline = $("#chatline");
     chatline.attr("placeholder", "Type here to Chat");
+    chatline.attr("spellcheck", "true");
     chatline.focus();
   }
  
