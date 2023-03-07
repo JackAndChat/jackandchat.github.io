@@ -146,7 +146,7 @@ const roomAnnounce = function(msg){
   if (window.CLIENT.rank < 1) return;
   if (BOT_NICK.toLowerCase() == CLIENT.name.toLowerCase()) return;
 
-  $(function() { // Why???
+  $(function() {
     makeAlert("Message from Admin", msg).attr("id","roomAnnounce").appendTo("#announcements");
   });
 };
@@ -157,7 +157,7 @@ const modAnnounce = function(msg){
   if (window.CLIENT.rank < 2) return;
   if (BOT_NICK.toLowerCase() == CLIENT.name.toLowerCase()) return;
     
-  $(function() { // Why???
+  $(function() {
     makeAlert("Moderators", msg).attr("id","modAnnounce").appendTo("#announcements");
   });
 };
@@ -299,6 +299,10 @@ window[CHANNEL.name].commonMotd = "";
 const setCustomMOTD = function() {
   CHANNEL.motd += window[CHANNEL.name].commonMotd;
   $("#motd").html(CHANNEL.motd);
+
+  if (MOTD_MSG === null) return;
+  if (MOTD_MSG.length < 1) return;
+  $("#motd div:first").append(MOTD_MSG);
 }
 
 const getCustomMOTD = function() {
@@ -336,7 +340,6 @@ const getFooter = function() {
     },
     success: function(data){
       debugData("common.getFooter", data);
-      window[CHANNEL.name].commonMotd = data;
       $("p.credit").html(data);
     }
   });
