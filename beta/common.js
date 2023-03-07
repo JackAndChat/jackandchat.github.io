@@ -370,6 +370,7 @@ $(document).ready(function() {
   VIDEO_TITLE.title = $currenttitle.text().replace("Currently Playing: ", "");
   setVideoTitle();
   
+  $('#plonotification').remove();
   $('#plmeta').insertBefore("#queue");
 
   $('<link id="roomfavicon" href="' + Favicon_URL + '?ac=' + START + '" type="image/x-icon" rel="shortcut icon" />').appendTo("head");
