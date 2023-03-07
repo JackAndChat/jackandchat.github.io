@@ -17,7 +17,7 @@ if (typeof ChannelName_Caption === "undefined") { var ChannelName_Caption = CHAN
 if (typeof Room_ID === "undefined") { var Room_ID = "jac"; }
 if (typeof ALLOW_GUESTS === "undefined") { var ALLOW_GUESTS = true; }
 if (typeof MUTE_GUESTS === "undefined") { var MUTE_GUESTS = false; }
-if (typeof AGE_RESTRICT === "undefined") { var AGE_RESTRICT = false; }
+if (typeof AGE_RESTRICT === "undefined") { var AGE_RESTRICT = true; }
 if (typeof CHANNEL_DEBUG === "undefined") { var CHANNEL_DEBUG = false; }
 if (typeof BETA_USER === "undefined") { var BETA_USER = false; }
 if (typeof BETA_USERS === "undefined") { var BETA_USERS = []; }
@@ -25,6 +25,7 @@ if (typeof BETA_USERS === "undefined") { var BETA_USERS = []; }
 if (typeof ROOM_ANNOUNCEMENT === "undefined") { var ROOM_ANNOUNCEMENT = ""; }
 if (typeof MOD_ANNOUNCEMENT === "undefined") { var MOD_ANNOUNCEMENT = ""; }
 if (typeof CLEAR_MSG === "undefined") { var CLEAR_MSG = ""; }
+if (typeof MOTD_MSG === "undefined") { var MOTD_MSG = ""; }
 
 // ----------------------------------------------------------------------------------------------------------------------------------
 if (typeof LOAD_BOT === "undefined") { var LOAD_BOT = false; }

@@ -26,6 +26,13 @@ const isNullOrEmpty = function(data){
   return !(data);
 }
 
+function Sleep(sleepMS) {
+  // USE: await Sleep(2000);
+  return new Promise(resolve => setTimeout(resolve, sleepMS));
+}
+
+// ----------------------------------------------------------------------------------------------------------------------------------
+
 const formatConsoleMsg = function(desc, data){
   let msg = desc;
   if ((typeof data !== 'undefined') && (data)) {
@@ -139,7 +146,7 @@ const roomAnnounce = function(msg){
   if (window.CLIENT.rank < 1) return;
   if (BOT_NICK.toLowerCase() == CLIENT.name.toLowerCase()) return;
 
-  $(function() { // Why???
+  $(function() {
     makeAlert("Message from Admin", msg).attr("id","roomAnnounce").appendTo("#announcements");
   });
 };
@@ -150,7 +157,7 @@ const modAnnounce = function(msg){
   if (window.CLIENT.rank < 2) return;
   if (BOT_NICK.toLowerCase() == CLIENT.name.toLowerCase()) return;
     
-  $(function() { // Why???
+  $(function() {
     makeAlert("Moderators", msg).attr("id","modAnnounce").appendTo("#announcements");
   });
 };
@@ -292,6 +299,10 @@ window[CHANNEL.name].commonMotd = "";
 const setCustomMOTD = function() {
   CHANNEL.motd += window[CHANNEL.name].commonMotd;
   $("#motd").html(CHANNEL.motd);
+
+  if (MOTD_MSG === null) return;
+  if (MOTD_MSG.length < 1) return;
+  $("#motd div:first").append(MOTD_MSG);
 }
 
 const getCustomMOTD = function() {
@@ -329,10 +340,18 @@ const getFooter = function() {
     },
     success: function(data){
       debugData("common.getFooter", data);
-      window[CHANNEL.name].commonMotd = data;
       $("p.credit").html(data);
     }
   });
+}
+
+// ##################################################################################################################################
+
+const makeNoRefererMeta = function(){
+  let meta = document.createElement('meta');
+  meta.name='referrer';
+  meta.content='no-referrer';
+  document.head.append(meta);
 }
 
 // ##################################################################################################################################
@@ -351,6 +370,7 @@ $(document).ready(function() {
   VIDEO_TITLE.title = $currenttitle.text().replace("Currently Playing: ", "");
   setVideoTitle();
   
+  $('#plonotification').remove();
   $('#plmeta').insertBefore("#queue");
 
   $('<link id="roomfavicon" href="' + Favicon_URL + '?ac=' + START + '" type="image/x-icon" rel="shortcut icon" />').appendTo("head");
@@ -380,6 +400,7 @@ $(document).ready(function() {
 
   window.setInterval(()=>{  // Check every second
     autoMsgExpire();
+    makeNoRefererMeta();
 
     // Remove LastPass Icon. TODO There MUST be a better way!
     $("#chatline").css({"background-image":"none"});
@@ -392,6 +413,7 @@ $(document).ready(function() {
 
     let chatline = $("#chatline");
     chatline.attr("placeholder", "Type here to Chat");
+    chatline.attr("spellcheck", "true");
     chatline.focus();
   }
  
