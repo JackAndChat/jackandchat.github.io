@@ -14,6 +14,8 @@ var BETA_USERS = ['lisaqtee'];
 
 var TRIVIA = false;
 
+// var HIGHLIGHT = [''];
+
 // var ADVERTISEMENT = ``;
 
 // var ROOM_ANNOUNCEMENT = ``;
