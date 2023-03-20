@@ -6,6 +6,16 @@
 /*jshint esversion: 6*/
 'use strict';
 
+// ##################################################################################################################################
+
+// Replace source
+/*
+$('img').on("error", function() {
+  $(this).attr('src', '/images/missing.png');
+});
+*/
+
+// ##################################################################################################################################
 var $zoomImgMsg = $("#messagebuffer");
 
 var zoomImgCSS = `
@@ -61,6 +71,8 @@ var zoomImgCSS = `
 </style>
 `;
 
+// ----------------------------------------------------------------------------------------------------------------------------------
+
 const imageExtensions = 'a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".pnj"], ' + 
   'a[href*=".gif"], a[href*=".gifv"], a[href*=".svg"], a[href*=".svgz"], a[href*=".webp"]';
 
@@ -69,7 +81,7 @@ $('footer').after('<div id="zoomImgModal" class="zoomImgModal"></div>');
 var $zoomImgModal = $('#zoomImgModal');
 
 const showChatImg = function() {
-  if ($(window).width() <= 700) { return; }
+  if ($(window).width() <= 800) { return; }
 
   $zoomImgMsg.find(imageExtensions).each(function() {
     let skip = false;
@@ -92,6 +104,7 @@ const showChatImg = function() {
   });
 }
 
+// ----------------------------------------------------------------------------------------------------------------------------------
 $(document).ready(function() {
   window.socket.on('chatMsg', (data)=>{
     if (typeof data === 'undefined') return;
@@ -102,6 +115,9 @@ $(document).ready(function() {
   });
   showChatImg();
 });
+
+// ##################################################################################################################################
+// ##################################################################################################################################
 
 /*
 https://iframe.ly/api/iframely?api_key=d160d7c38aa4a3a3371b0c&url=https%3A%2F%2Fwww.flickr.com%2Fphotos%2F9somboon%2F35071348993%2Fin%2Fexplore-2017-07-12%2F

@@ -497,6 +497,9 @@ window[CHANNEL.name].randomMsgInit = function() {
   if (Room_ID.toLowerCase() !== 'fd') {
     window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Teen_ videos check out https://s.lain.la/nu9g6 `);
   }
+  if (Room_ID.toLowerCase() !== 'cum') {
+    window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Cum Shot_ videos check out https://s.lain.la/XAIF0 `);
+  }
   if (Room_ID.toLowerCase() !== 'clx') {
     window[CHANNEL.name].botMsgs.push(`:cyan:If you like _Classic/Retro_ videos check out https://s.lain.la/PEJXd `);
   }
