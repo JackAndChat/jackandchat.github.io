@@ -8,14 +8,6 @@
 
 // ##################################################################################################################################
 
-// Replace source
-/*
-$('img').on("error", function() {
-  $(this).attr('src', '/images/missing.png');
-});
-*/
-
-// ##################################################################################################################################
 var $zoomImgMsg = $("#messagebuffer");
 
 var zoomImgCSS = `
@@ -73,8 +65,24 @@ var zoomImgCSS = `
 
 // ----------------------------------------------------------------------------------------------------------------------------------
 
-const imageExtensions = 'a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".pnj"], ' + 
-  'a[href*=".gif"], a[href*=".gifv"], a[href*=".svg"], a[href*=".svgz"], a[href*=".webp"]';
+const imgError = function(img) {
+  img.onerror = "";
+  window.console.error('imgError: ' + img.src);
+  img.src = Root_URL + "emoji/x.webp";
+  return true;
+}
+
+const waitForImage = function(url) {
+  return new Promise((resolve, reject) => {
+    let img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(img);
+    img.src = url;
+  })
+}
+  
+const imageExtensions = `a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".pnj"], ` + 
+  `a[href*=".gif"], a[href*=".gifv"], a[href*=".svg"], a[href*=".svgz"], a[href*=".webp"]`;
 
 $('head').append(zoomImgCSS);
 $('footer').after('<div id="zoomImgModal" class="zoomImgModal"></div>');
@@ -84,23 +92,20 @@ const showChatImg = function() {
   if ($(window).width() <= 800) { return; }
 
   $zoomImgMsg.find(imageExtensions).each(function() {
-    let skip = false;
-    if (((this.href.indexOf("redgifs.com") > -1) && (!this.href.indexOf("thumbs"))) ||
-        ((this.href.indexOf("imgur.com") > -1) && (!this.href.indexOf("i.imgur.com")))
-       ) { skip = true; }
-
-    if (!skip) {
-      var img = $('<img>',{class:'zoomImg',rel:'noopener noreferrer',title:'Click to Zoom',alt:'Bad Image'})
-        .attr('src', encodeURI(this.href))
-        .on('click', function(){
-          let popImg = $('<img>',{class:'zoomedImg',title:'Click to Close',src:encodeURI($(this).attr("src"))});
-          $zoomImgModal.html('').append(popImg).on('click', function(){$zoomImgModal.css({"display":"none"}).html('');});
-          $zoomImgModal.css({"display":"block"});
-        })
-        .load(()=>{ scrollChat(); });
-        
-      $(this).parent().html(img);
-    }
+    waitForImage(this.href)
+      .then(img => {
+        var chatImg = $('<img>',{class:'zoomImg',rel:'noopener noreferrer',title:'Click to Zoom',alt:'Bad Image'})
+          .attr('src', encodeURI(this.href))
+          .on('error', 'imgError(this)"')
+          .on('click', function(){
+            let popImg = $('<img>',{class:'zoomedImg',title:'Click to Close',src:encodeURI($(this).attr("src"))});
+            $zoomImgModal.html('').append(popImg).on('click', function(){$zoomImgModal.css({"display":"none"}).html('');});
+            $zoomImgModal.css({"display":"block"});
+          })
+          .load(()=>{ scrollChat(); });
+          
+        $(this).parent().html(chatImg);
+      });
   });
 }
 
