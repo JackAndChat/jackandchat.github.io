@@ -69,21 +69,19 @@ body {
 .rooms-child:first-child {
 } 
 
+a:link.new, a:hover.new { color: SpringGreen; }
+a:visited.new, a:active.new { color: #008242; }
+
 .rooms a {
   color: rgb(128, 128, 255);
   background-color: transparent;
   text-decoration: none;
-  text-transform: capitalize;
 }
 .rooms a:visited {
   color: rgb(192, 64, 192);
 }
-.rooms a:hover {
+.rooms a:hover, .rooms a:active {
   color: rgb(255, 64, 64);
-  text-decoration: underline;
-}
-.rooms a:active {
-  color: Red;
   text-decoration: underline;
 }
 .rooms ul {
