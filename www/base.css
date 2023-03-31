@@ -69,8 +69,8 @@ body {
 .rooms-child:first-child {
 } 
 
-a:link.new, a:hover.new { color: SpringGreen; }
-a:visited.new, a:active.new { color: #008242; }
+a:link.new, a:hover.new { color: SpringGreen !important; }
+a:visited.new, a:active.new { color: #008242 !important; }
 
 .rooms a {
   color: rgb(128, 128, 255);
